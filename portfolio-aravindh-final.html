@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aravindh J — Aspiring Product Manager</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg:#050508; --card:#111118; --accent:#e8ff47; --accent2:#ff4785;
+    --accent3:#47e8ff; --text:#f0ece4; --muted:#7a7a8e; --border:rgba(255,255,255,0.07);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'DM Mono',monospace;overflow-x:hidden;cursor:none}
+
+  #cursor{position:fixed;width:12px;height:12px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s;mix-blend-mode:difference}
+  #cursor-ring{position:fixed;width:40px;height:40px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s;opacity:.5}
+  body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:9990;opacity:.4}
+
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 50px;background:rgba(5,5,8,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  .logo{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;color:var(--accent)}
+  .nav-links{display:flex;gap:18px;list-style:none;flex-wrap:wrap}
+  .nav-links a{text-decoration:none;color:var(--muted);font-size:9px;letter-spacing:2px;text-transform:uppercase;transition:color .3s;position:relative}
+  .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width .3s}
+  .nav-links a:hover{color:var(--accent)}
+  .nav-links a:hover::after{width:100%}
+
+  #hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
+  .grid-plane{position:absolute;bottom:-10%;left:-20%;right:-20%;height:60%;transform:rotateX(70deg);transform-origin:bottom center;background-image:linear-gradient(rgba(232,255,71,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(232,255,71,.07) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at 50% 100%,black 30%,transparent 80%)}
+  .orb{position:absolute;border-radius:50%;filter:blur(80px);animation:orb-float 8s ease-in-out infinite}
+  .orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(232,255,71,.12),transparent 70%);top:-100px;right:-100px}
+  .orb-2{width:400px;height:400px;background:radial-gradient(circle,rgba(255,71,133,.1),transparent 70%);bottom:100px;left:-100px;animation-delay:-3s}
+  .orb-3{width:300px;height:300px;background:radial-gradient(circle,rgba(71,232,255,.08),transparent 70%);top:50%;left:42%;animation-delay:-5s}
+  @keyframes orb-float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-40px) scale(1.05)}}
+
+  .cube-wrap{position:absolute;top:50%;left:66%;transform:translate(-50%,-50%);perspective:1000px}
+  .cube-inner{transform-style:preserve-3d;animation:cube-spin 18s linear infinite;width:180px;height:180px;position:relative}
+  @keyframes cube-spin{from{transform:rotateX(15deg) rotateY(0)}to{transform:rotateX(15deg) rotateY(360deg)}}
+  .face{position:absolute;width:180px;height:180px;border:1px solid rgba(232,255,71,.2);background:rgba(232,255,71,.03);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;color:rgba(232,255,71,.3)}
+  .face.front{transform:translateZ(90px)}.face.back{transform:translateZ(-90px) rotateY(180deg)}
+  .face.left{transform:translateX(-90px) rotateY(-90deg)}.face.right{transform:translateX(90px) rotateY(90deg)}
+  .face.top{transform:translateY(-90px) rotateX(90deg)}.face.bottom{transform:translateY(90px) rotateX(-90deg)}
+
+  .hero-content{position:relative;z-index:10;padding:0 70px;max-width:820px}
+  .hero-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:22px;opacity:0;animation:fade-up .8s .3s forwards}
+  .hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,11vw,140px);line-height:.9;letter-spacing:-2px;margin-bottom:28px;opacity:0;animation:fade-up .8s .5s forwards}
+  .hero-name .solid{color:var(--text);display:block}
+  .hero-name .ghost{-webkit-text-stroke:1px rgba(240,236,228,.22);color:transparent;display:block}
+  .hero-sub{font-size:13px;line-height:1.95;color:var(--muted);max-width:450px;margin-bottom:48px;opacity:0;animation:fade-up .8s .7s forwards}
+  .hero-cta{display:inline-flex;align-items:center;gap:12px;padding:16px 36px;border:1px solid var(--accent);color:var(--accent);text-decoration:none;font-size:11px;letter-spacing:3px;text-transform:uppercase;position:relative;overflow:hidden;opacity:0;animation:fade-up .8s .9s forwards;transition:color .3s}
+  .hero-cta::before{content:'';position:absolute;inset:0;background:var(--accent);transform:translateX(-101%);transition:transform .4s cubic-bezier(.7,0,.3,1)}
+  .hero-cta:hover::before{transform:translateX(0)}.hero-cta:hover{color:var(--bg)}
+  .hero-cta span{position:relative;z-index:1}
+  @keyframes fade-up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+  .scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);animation:fade-up 1s 1.5s both}
+  .scroll-line{width:1px;height:50px;background:linear-gradient(to bottom,var(--accent),transparent);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+
+  .sec{padding:100px 60px;max-width:1400px;margin:0 auto}
+  .divider{height:1px;background:var(--border);max-width:1280px;margin:0 auto}
+  .sec-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+  .sec-title{font-family:'DM Serif Display',serif;font-size:clamp(36px,4.5vw,64px);line-height:1.1;margin-bottom:50px}
+  .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}
+  .reveal.visible{opacity:1;transform:translateY(0)}
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .about-text p{font-size:13.5px;line-height:2.05;color:var(--muted);margin-bottom:18px}
+  .about-text p strong{color:var(--text);font-weight:normal}
+  .stats{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:40px}
+  .stat{padding:24px 20px;background:var(--card);border:1px solid var(--border);transition:transform .4s,border-color .4s}
+  .stat:hover{transform:translateY(-4px);border-color:rgba(232,255,71,.2)}
+  .stat-num{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--accent);line-height:1;margin-bottom:6px}
+  .stat-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+  .avatar-wrap{position:relative;perspective:800px}
+  .avatar-card{width:100%;aspect-ratio:3/4;background:var(--card);border:1px solid var(--border);border-radius:2px;position:relative;overflow:hidden;transform-style:preserve-3d;transition:transform .1s ease-out;cursor:pointer}
+  .avatar-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,255,71,.04) 0%,transparent 50%,rgba(255,71,133,.04) 100%);pointer-events:none;z-index:1}
+  .avatar-initials{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;z-index:0}
+  .avatar-icon{width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue';font-size:44px;color:var(--bg);box-shadow:0 0 80px rgba(232,255,71,.22)}
+  .avatar-info{position:absolute;bottom:0;left:0;right:0;padding:24px;background:linear-gradient(to top,rgba(5,5,8,.96),transparent);z-index:2}
+  .avatar-info .ai-role{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+  .avatar-info .ai-inst{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+  .avatar-info .ai-loc{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent3);opacity:.8}
+  .avatar-glow{position:absolute;width:200px;height:200px;border-radius:50%;background:radial-gradient(circle,rgba(232,255,71,.15),transparent 70%);pointer-events:none;transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}
+
+  /* EXPERIENCE */
+  .exp-list{display:flex;flex-direction:column;gap:3px}
+  .exp-card{background:var(--card);border:1px solid var(--border);padding:32px 36px;position:relative;overflow:hidden;transition:all .3s}
+  .exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transition:transform .3s;transform-origin:bottom}
+  .exp-card:hover{border-color:rgba(232,255,71,.2);transform:translateX(6px)}
+  .exp-card:hover::before{transform:scaleY(1)}
+  .exp-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;gap:20px;flex-wrap:wrap}
+  .exp-role{font-family:'DM Serif Display',serif;font-size:21px;margin-bottom:5px;color:var(--text)}
+  .exp-company{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+  .exp-period{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--muted);letter-spacing:2px;white-space:nowrap;flex-shrink:0}
+  .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:4px}
+  .exp-bullets li{font-size:12.5px;line-height:1.8;color:var(--muted);padding-left:18px;position:relative}
+  .exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:10px;top:3px}
+
+  /* SKILLS */
+  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+  .skill-col-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:20px;border-bottom:1px solid var(--border);padding-bottom:10px}
+  .skill-list{display:flex;flex-direction:column;gap:2px}
+  .skill-item{display:flex;align-items:center;justify-content:space-between;padding:15px 20px;background:var(--card);border:1px solid var(--border);position:relative;overflow:hidden;transition:all .3s}
+  .skill-item::before{content:'';position:absolute;left:0;top:0;bottom:0;background:var(--accent);width:var(--w,0);opacity:.07}
+  .skill-item:hover{border-color:rgba(232,255,71,.15);transform:translateX(4px)}
+  .skill-name{font-size:11px;letter-spacing:2px;text-transform:uppercase;position:relative;color:var(--text)}
+  .skill-pct{font-size:13px;color:var(--accent);font-family:'Bebas Neue';letter-spacing:2px;position:relative}
+  .soft-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+  .soft-tag{background:var(--card);border:1px solid var(--border);padding:16px 18px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:all .3s;text-align:center}
+  .soft-tag:hover{border-color:rgba(255,71,133,.3);color:var(--accent2);transform:translateY(-3px)}
+
+  /* TOOLS */
+  .tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:3px}
+  .tool-card{background:var(--card);border:1px solid var(--border);padding:28px 16px;text-align:center;transition:all .3s;cursor:default}
+  .tool-card:hover{border-color:rgba(232,255,71,.3);transform:translateY(-5px)}
+  .tool-card:hover .tool-name{color:var(--accent)}
+  .tool-icon{font-size:28px;margin-bottom:12px;display:block}
+  .tool-name{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color .3s}
+
+  /* EDUCATION */
+  .edu-list{display:flex;flex-direction:column;gap:3px}
+  .edu-card{background:var(--card);border:1px solid var(--border);padding:30px 36px;display:flex;justify-content:space-between;align-items:center;gap:20px;transition:all .3s;position:relative;overflow:hidden}
+  .edu-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent3);transform:scaleY(0);transition:transform .3s;transform-origin:bottom}
+  .edu-card:hover{border-color:rgba(71,232,255,.2);transform:translateX(6px)}
+  .edu-card:hover::before{transform:scaleY(1)}
+  .edu-degree{font-family:'DM Serif Display',serif;font-size:19px;margin-bottom:6px;color:var(--text)}
+  .edu-school{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .edu-meta{font-size:10px;color:var(--accent3);letter-spacing:1px}
+  .edu-year{font-family:'Bebas Neue',sans-serif;font-size:30px;color:var(--accent3);letter-spacing:2px;flex-shrink:0;text-align:right}
+
+  /* PROJECTS */
+  .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+  .proj-card{position:relative;overflow:hidden;background:var(--card);border:1px solid var(--border);cursor:pointer;transition:border-color .3s}
+  .proj-card:hover{border-color:rgba(232,255,71,.2)}
+  .proj-featured{grid-column:span 2}
+  .proj-inner{width:100%;position:relative;transition:transform .6s cubic-bezier(.23,1,.32,1)}
+  .proj-featured .proj-inner{aspect-ratio:8/3}.proj-card:not(.proj-featured) .proj-inner{aspect-ratio:4/3}
+  .proj-card:hover .proj-inner{transform:scale(1.04)}
+  .proj-bg-1{background:linear-gradient(135deg,#0d0d14,#1a1420,#0d1a14)}
+  .proj-bg-2{background:linear-gradient(135deg,#140d1a,#1a0d10,#14100d)}
+  .proj-bg-3{background:linear-gradient(135deg,#0d141a,#0d1014,#14140d)}
+  .proj-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+  .spin{animation:spin 12s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .proj-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,5,8,.97) 0%,rgba(5,5,8,.15) 60%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:26px;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+  .proj-card:hover .proj-overlay{opacity:1;transform:translateY(0)}
+  .proj-num{font-size:10px;letter-spacing:3px;color:var(--accent);margin-bottom:6px}
+  .proj-title{font-family:'DM Serif Display',serif;font-size:19px;margin-bottom:7px;line-height:1.3;color:var(--text)}
+  .proj-featured .proj-title{font-size:24px}
+  .proj-tech{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .proj-desc{font-size:11.5px;color:var(--muted);line-height:1.75}
+
+  /* RESEARCH */
+  .research-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .research-card{background:var(--card);border:1px solid var(--border);padding:36px;transition:all .3s;position:relative;overflow:hidden}
+  .research-card::after{content:'';position:absolute;top:0;right:0;width:60px;height:60px;background:radial-gradient(circle at top right,rgba(71,232,255,.08),transparent 70%)}
+  .research-card:hover{border-color:rgba(71,232,255,.2);transform:translateY(-4px)}
+  .r-tag{display:inline-block;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--accent3);border:1px solid rgba(71,232,255,.2);padding:4px 10px;margin-bottom:14px}
+  .r-status{display:inline-block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);border:1px solid rgba(255,71,133,.2);padding:3px 8px;margin-left:8px;vertical-align:middle}
+  .r-title{font-family:'DM Serif Display',serif;font-size:18px;margin-bottom:12px;line-height:1.4;color:var(--text)}
+  .r-desc{font-size:12.5px;line-height:1.85;color:var(--muted)}
+
+  /* CERTIFICATES */
+  .cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:3px}
+  .cert-card{background:var(--card);border:1px solid var(--border);padding:26px 28px;display:flex;align-items:center;gap:20px;transition:all .3s}
+  .cert-card:hover{border-color:rgba(232,255,71,.2);transform:translateY(-4px)}
+  .cert-badge{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,rgba(232,255,71,.12),rgba(255,71,133,.12));border:1px solid rgba(232,255,71,.2);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .cert-name{font-size:13px;color:var(--text);margin-bottom:5px;line-height:1.4}
+  .cert-issuer{font-size:9.5px;letter-spacing:2px;text-transform:uppercase;color:var(--accent)}
+
+  /* ACTIVITIES */
+  .activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+  .activity-card{background:var(--card);border:1px solid var(--border);padding:32px;position:relative;overflow:hidden;transition:all .3s}
+  .activity-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent2);transform:scaleY(0);transition:transform .3s;transform-origin:bottom}
+  .activity-card:hover{border-color:rgba(255,71,133,.2);transform:translateX(6px)}
+  .activity-card:hover::before{transform:scaleY(1)}
+  .activity-icon{font-size:24px;margin-bottom:16px;display:block}
+  .activity-title{font-family:'DM Serif Display',serif;font-size:17px;margin-bottom:10px;line-height:1.3;color:var(--text)}
+  .activity-desc{font-size:12.5px;line-height:1.9;color:var(--muted)}
+
+  /* ACHIEVEMENTS */
+  .achieve-list{display:flex;flex-direction:column;gap:3px}
+  .achieve-card{background:var(--card);border:1px solid var(--border);padding:26px 36px;display:flex;align-items:flex-start;gap:28px;transition:all .3s}
+  .achieve-card:hover{border-color:rgba(232,255,71,.2);transform:translateX(6px)}
+  .achieve-num{font-family:'Bebas Neue',sans-serif;font-size:48px;color:rgba(232,255,71,.1);line-height:1;flex-shrink:0;width:56px}
+  .achieve-title{font-family:'DM Serif Display',serif;font-size:18px;margin-bottom:8px;line-height:1.3;color:var(--text)}
+  .achieve-desc{font-size:12.5px;color:var(--muted);line-height:1.8}
+  .achieve-badge{display:inline-block;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid rgba(232,255,71,.2);padding:3px 8px;margin-left:8px;vertical-align:middle}
+
+  /* CONTACT */
+  #contact{max-width:1400px;margin:0 auto;padding:120px 60px;text-align:center;position:relative;overflow:hidden}
+  .contact-bg{font-family:'Bebas Neue',sans-serif;font-size:clamp(80px,15vw,200px);color:rgba(255,255,255,.015);line-height:1;position:absolute;left:50%;transform:translateX(-50%);white-space:nowrap;pointer-events:none;letter-spacing:-5px;top:60px}
+  .contact-inner{position:relative;z-index:1}
+  .contact-title{font-family:'DM Serif Display',serif;font-size:clamp(48px,8vw,100px);line-height:1.05;margin-bottom:24px}
+  .contact-title em{font-style:italic;color:var(--accent)}
+  .contact-sub{color:var(--muted);font-size:13.5px;line-height:1.9;max-width:500px;margin:0 auto 50px}
+  .contact-links{display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap}
+  .contact-link{padding:14px 28px;border:1px solid var(--border);color:var(--muted);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:all .3s}
+  .contact-link:hover{background:var(--card);border-color:var(--accent);color:var(--accent)}
+  .contact-link.primary{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:600}
+  .contact-link.primary:hover{background:transparent;color:var(--accent)}
+  footer{border-top:1px solid var(--border);padding:40px 60px;display:flex;align-items:center;justify-content:space-between;font-size:11px;color:var(--muted);letter-spacing:1px}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">AJ</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#certificates">Certificates</a></li>
+    <li><a href="#activities">Activities</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section id="hero">
+  <div class="grid-plane"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="cube-wrap">
+    <div class="cube-inner">
+      <div class="face front">PM</div>
+      <div class="face back">DATA</div>
+      <div class="face left">UX</div>
+      <div class="face right">GROW</div>
+      <div class="face top">STRAT</div>
+      <div class="face bottom">BUILD</div>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-label">→ Open to Product Manager Roles &amp; Internships</div>
+    <h1 class="hero-name">
+      <span class="solid">Aravindh</span>
+      <span class="ghost">J</span>
+    </h1>
+    <p class="hero-sub">Growth-oriented aspiring Product Manager skilled in market analysis, problem-solving, and cross-functional collaboration — translating user needs into innovative, data-driven product solutions from ideation to execution.</p>
+    <a href="#projects" class="hero-cta"><span>View My Work</span><span>→</span></a>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ 01 · ABOUT ═══════════ -->
+<section id="about" class="sec">
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <div class="sec-label">01 — About</div>
+      <h2 class="sec-title">From ideas<br><em style="font-style:italic;color:var(--accent)">to impact</em></h2>
+      <p>I'm <strong>Aravindh J</strong>, a growth-oriented aspiring Product Manager currently pursuing my <strong>PGDM in Product Management</strong> at ISBR Business School, Bangalore (2025–2027).</p>
+      <p>I bridge user needs and business goals through structured thinking and data-backed decisions. My core strength lies in <strong>translating user needs into innovative, user-centric product solutions</strong> — from ideation all the way to execution.</p>
+      <p>Seeking to leverage strong <strong>research and analytical abilities</strong> to deliver impactful, data-driven results within a dynamic product development team.</p>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">PGDM</div>
+          <div class="stat-label">Product Mgmt — ISBR</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">BLR</div>
+          <div class="stat-label">Bangalore, India</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Real Projects Done</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4+</div>
+          <div class="stat-label">Ongoing Research</div>
+        </div>
+      </div>
+    </div>
+    <div class="avatar-wrap reveal" id="avatarCard" style="transition-delay:.2s">
+      <div class="avatar-card" id="card3d">
+        <div class="avatar-glow" id="cardGlow"></div>
+        <div class="avatar-initials">
+          <div class="avatar-icon">AJ</div>
+        </div>
+        <div class="avatar-info">
+          <div class="ai-role">Aspiring Product Manager</div>
+          <div class="ai-inst">ISBR Business School · Bangalore</div>
+          <div class="ai-loc">📍 Karnataka, India</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ 02 · WORK EXPERIENCE ═══════════ -->
+<section id="experience" class="sec">
+  <div class="sec-label reveal">02 — Work Experience</div>
+  <h2 class="sec-title reveal">Professional<br>Journey</h2>
+  <div class="exp-list">
+
+    <div class="exp-card reveal">
+      <div class="exp-head">
+        <div>
+          <div class="exp-role">Intern — Accounting &amp; Finance</div>
+          <div class="exp-company">VPSN Associates (CA Firm) · Chennai</div>
+        </div>
+        <div class="exp-period">2022 – 2023 · 8 Months</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Managed bookkeeping and daily financial entries using Tally Prime and Excel.</li>
+        <li>Assisted GST filing (GSTR-1, GSTR-3B), invoice processing, and documentation.</li>
+        <li>Supported preparation of P&amp;L, balance sheet, and cash flow statements.</li>
+        <li>Maintained ledger records and assisted during month-end closing.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:.1s">
+      <div class="exp-head">
+        <div>
+          <div class="exp-role">Delivery Partner — Part-Time</div>
+          <div class="exp-company">Rapido / Zomato</div>
+        </div>
+        <div class="exp-period">6 Months</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Strengthened real-time communication and customer handling under pressure.</li>
+        <li>Improved time management and on-ground problem-solving through direct field experience.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card reveal" style="transition-delay:.2s">
+      <div class="exp-head">
+        <div>
+          <div class="exp-role">Freelance Photo &amp; Video Editor</div>
+          <div class="exp-company">Independent · Adobe Photoshop</div>
+        </div>
+        <div class="exp-period">2024 — Ongoing</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Edited wedding photos &amp; videos and YouTube content for clients using Adobe Photoshop.</li>
+        <li>Developed strong creative, visual storytelling, and editing skills from a young age.</li>
+        <li>Built freelance experience delivering high-quality creative outputs for diverse clients.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ 03 · SKILLS ═══════════ -->
+<section id="skills" class="sec">
+  <div class="sec-label reveal">03 — Skills</div>
+  <h2 class="sec-title reveal">What I bring<br>to the table</h2>
+  <div class="skills-grid">
+
+    <div class="reveal">
+      <div class="skill-col-label">Hard Skills</div>
+      <div class="skill-list">
+        <div class="skill-item" style="--w:90%"><span class="skill-name">Market Research</span><span class="skill-pct">90%</span></div>
+        <div class="skill-item" style="--w:86%"><span class="skill-name">Data &amp; Analytics</span><span class="skill-pct">86%</span></div>
+        <div class="skill-item" style="--w:83%"><span class="skill-name">User Research</span><span class="skill-pct">83%</span></div>
+        <div class="skill-item" style="--w:80%"><span class="skill-name">New Product Development</span><span class="skill-pct">80%</span></div>
+        <div class="skill-item" style="--w:77%"><span class="skill-name">Agile &amp; Scrum</span><span class="skill-pct">77%</span></div>
+        <div class="skill-item" style="--w:74%"><span class="skill-name">Video &amp; Photo Editing</span><span class="skill-pct">74%</span></div>
+      </div>
+    </div>
+
+    <div class="reveal" style="transition-delay:.15s">
+      <div class="skill-col-label">Soft Skills</div>
+      <div class="soft-grid">
+        <div class="soft-tag">Positive Attitude</div>
+        <div class="soft-tag">Adaptability</div>
+        <div class="soft-tag">Communication</div>
+        <div class="soft-tag">Coordination</div>
+        <div class="soft-tag">Smart Work</div>
+        <div class="soft-tag">Quick Learner</div>
+        <div class="soft-tag">Problem Solver</div>
+        <div class="soft-tag">Cross-func. Collab.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ 04 · TOOLS ═══════════ -->
+<section id="tools" class="sec">
+  <div class="sec-label reveal">04 — Tools</div>
+  <h2 class="sec-title reveal">My Toolkit</h2>
+  <div class="tools-grid reveal">
+    <div class="tool-card"><span class="tool-icon">📊</span><div class="tool-name">MS Office</div></div>
+    <div class="tool-card"><span class="tool-icon">📉</span><div class="tool-name">SPSS</div></div>
+    <div class="tool-card"><span class="tool-icon">📋</span><div class="tool-name">Google Sheets</div></div>
+    <div class="tool-card"><span class="tool-icon">📝</span><div class="tool-name">Google Docs</div></div>
+    <div class="tool-card"><span class="tool-icon">📈</span><div class="tool-name">Power BI</div></div>
+    <div class="tool-card"><span class="tool-icon">🎨</span><div class="tool-name">Figma</div></div>
+    <div class="tool-card"><span class="tool-icon">📊</span><div class="tool-name">Tableau</div></div>
+    <div class="tool-card"><span class="tool-icon">🗂️</span><div class="tool-name">Trello</div></div>
+    <div class="tool-card"><span class="tool-icon">💰</span><div class="tool-name">Tally Prime</div></div>
+    <div class="tool-card"><span class="tool-icon">🎬</span><div class="tool-name">Kineme</div></div>
+    <div class="tool-card"><span class="tool-icon">🖼️</span><div class="tool-name">Photoshop</div></div>
+    <div class="tool-card"><span class="tool-icon">🔲</span><div class="tool-name">UX &amp; UI</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ 05 · EDUCATION ═══════════ -->
+<section id="education" class="sec">
+  <div class="sec-label reveal">05 — Education</div>
+  <h2 class="sec-title reveal">Academic<br>Foundation</h2>
+  <div class="edu-list">
+
+    <div class="edu-card reveal">
+      <div>
+        <div class="edu-degree">PGDM — Product Management</div>
+        <div class="edu-school">ISBR Business School · Bangalore, Karnataka</div>
+        <div class="edu-meta">Post Graduate Diploma in Management</div>
+      </div>
+      <div class="edu-year">2025 – 2027</div>
+    </div>
+
+    <div class="edu-card reveal" style="transition-delay:.1s">
+      <div>
+        <div class="edu-degree">B.Com Honours</div>
+        <div class="edu-school">Guru Nanak College · Chennai, Tamil Nadu</div>
+        <div class="edu-meta">GPA: 75%</div>
+      </div>
+      <div class="edu-year">2021 – 2024</div>
+    </div>
+
+    <div class="edu-card reveal" style="transition-delay:.2s">
+      <div>
+        <div class="edu-degree">Higher Secondary — Accounts, Commerce &amp; Business Maths</div>
+        <div class="edu-school">Sri Matha School · Kumbakonam, Tamil Nadu</div>
+        <div class="edu-meta">GPA: 75%</div>
+      </div>
+      <div class="edu-year">2019 – 2021</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ 06 · PROJECTS ═══════════ -->
+<section id="projects" class="sec">
+  <div class="sec-label reveal">06 — Projects</div>
+  <h2 class="sec-title reveal">Work that<br>defines my craft</h2>
+  <div class="projects-grid">
+
+    <div class="proj-card proj-featured proj-bg-1 reveal">
+      <div class="proj-inner">
+        <div class="proj-art">
+          <svg class="spin" width="320" height="160" viewBox="0 0 320 160">
+            <defs>
+              <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#e8ff47" stop-opacity=".6"/>
+                <stop offset="100%" stop-color="#47e8ff" stop-opacity=".2"/>
+              </linearGradient>
+            </defs>
+            <polygon points="160,10 300,148 20,148" fill="none" stroke="url(#g1)" stroke-width="1.5"/>
+            <polygon points="160,32 276,136 44,136" fill="none" stroke="url(#g1)" stroke-width="1" opacity=".5"/>
+            <circle cx="160" cy="85" r="30" fill="none" stroke="#e8ff47" stroke-width="1" opacity=".4"/>
+            <circle cx="160" cy="85" r="6" fill="#e8ff47" opacity=".6"/>
+          </svg>
+        </div>
+        <div class="proj-overlay">
+          <div class="proj-num">001 · Market Research</div>
+          <div class="proj-title">Customer Satisfaction Study — TVS Motorcycles</div>
+          <div class="proj-tech">Primary Research · Data Collection · Loyalty Drivers · Analysis</div>
+          <div class="proj-desc">Conducted primary market research and data collection to analyze product quality, service levels, pricing perceptions, and loyalty drivers among TVS Motorcycle customers.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card proj-bg-2 reveal" style="transition-delay:.1s">
+      <div class="proj-inner">
+        <div class="proj-art">
+          <svg class="spin" width="140" height="140" viewBox="0 0 140 140" style="animation-direction:reverse;animation-duration:10s">
+            <defs>
+              <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#ff4785"/>
+                <stop offset="100%" stop-color="#e8ff47"/>
+              </linearGradient>
+            </defs>
+            <rect x="18" y="18" width="104" height="104" fill="none" stroke="url(#g2)" stroke-width="1.5" opacity=".7"/>
+            <rect x="34" y="34" width="72" height="72" fill="none" stroke="url(#g2)" stroke-width="1" opacity=".5"/>
+            <circle cx="70" cy="70" r="8" fill="#ff4785" opacity=".5"/>
+          </svg>
+        </div>
+        <div class="proj-overlay">
+          <div class="proj-num">002 · Data Analysis</div>
+          <div class="proj-title">Financial Literacy Analysis — MBA Students</div>
+          <div class="proj-tech">Primary Data · SPSS · Decision Variance</div>
+          <div class="proj-desc">Financial knowledge predicts 21% of decision variance. 68% of MBA students budget effectively but prefer conservative investment strategies.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-card proj-bg-3 reveal" style="transition-delay:.18s">
+      <div class="proj-inner">
+        <div class="proj-art">
+          <svg class="spin" width="140" height="140" viewBox="0 0 140 140" style="animation-duration:9s">
+            <defs>
+              <linearGradient id="g3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#47e8ff"/>
+                <stop offset="100%" stop-color="#ff4785"/>
+              </linearGradient>
+            </defs>
+            <circle cx="70" cy="70" r="55" fill="none" stroke="url(#g3)" stroke-width="1" opacity=".5" stroke-dasharray="8 4"/>
+            <circle cx="70" cy="70" r="36" fill="none" stroke="url(#g3)" stroke-width="1.5" opacity=".7"/>
+            <circle cx="70" cy="70" r="5" fill="#47e8ff"/>
+          </svg>
+        </div>
+        <div class="proj-overlay">
+          <div class="proj-num">003 · Product Lead</div>
+          <div class="proj-title">NutriTwist — Innovative Protein Bottle</div>
+          <div class="proj-tech">Product Dev · GTM Strategy · Pricing · Market Research</div>
+          <div class="proj-desc">Developed and launched an innovative protein bottle concept for fitness users. Conducted market research, identified customer pain points, designed features, pricing, and go-to-market strategy.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ 07 · RESEARCH ═══════════ -->
+<section id="research" class="sec">
+  <div class="sec-label reveal">07 — Research</div>
+  <h2 class="sec-title reveal">Ongoing<br>Insights</h2>
+  <div class="research-grid">
+
+    <div class="research-card reveal">
+      <div><span class="r-tag">Quick Commerce</span><span class="r-status">Ongoing</span></div>
+      <div class="r-title">Instant Shopping App Concept</div>
+      <div class="r-desc">Studying quick-commerce user pain points to define clear product requirements for an instant shopping experience — focused on UX friction, delivery expectations, and user retention strategies.</div>
+    </div>
+
+    <div class="research-card reveal" style="transition-delay:.1s">
+      <div><span class="r-tag">Platform Design</span><span class="r-status">Ongoing</span></div>
+      <div class="r-title">Event Planning Platform Concept</div>
+      <div class="r-desc">Designing a platform integrating transparent pricing and local vendor management for events — addressing pain points around trust, vendor discovery, and coordination between clients and suppliers.</div>
+    </div>
+
+    <div class="research-card reveal" style="transition-delay:.1s">
+      <div><span class="r-tag">Economic Study</span><span class="r-status">Ongoing</span></div>
+      <div class="r-title">Job Creation via IT Startups in Small Towns</div>
+      <div class="r-desc">Researching the economic impact of IT startups on employment generation and skill development in Tier 2 and Tier 3 cities across India — exploring policy gaps and opportunity areas.</div>
+    </div>
+
+    <div class="research-card reveal" style="transition-delay:.2s">
+      <div><span class="r-tag">Comparative Study</span><span class="r-status">Ongoing</span></div>
+      <div class="r-title">Cross-Functional Experience vs PM Education</div>
+      <div class="r-desc">Comparative analysis of whether cross-functional work experience or formal PM education better prepares professionals for product management roles in the current industry landscape.</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ 08 · CERTIFICATES ═══════════ -->
+<section id="certificates" class="sec">
+  <div class="sec-label reveal">08 — Certificates</div>
+  <h2 class="sec-title reveal">Credentials &amp;<br>Certifications</h2>
+  <div class="cert-grid">
+
+    <div class="cert-card reveal">
+      <div class="cert-badge">💡</div>
+      <div>
+        <div class="cert-name">Product Management 101</div>
+        <div class="cert-issuer">Product Management Fundamentals</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:.06s">
+      <div class="cert-badge">💰</div>
+      <div>
+        <div class="cert-name">Tally Certification</div>
+        <div class="cert-issuer">Tally Prime · Accounting Software</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:.12s">
+      <div class="cert-badge">⌨️</div>
+      <div>
+        <div class="cert-name">Typewriting Certificate</div>
+        <div class="cert-issuer">Speed &amp; Accuracy Certification</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:.18s">
+      <div class="cert-badge">📈</div>
+      <div>
+        <div class="cert-name">Bloomberg Certification</div>
+        <div class="cert-issuer">Bloomberg · Finance &amp; Markets</div>
+      </div>
+    </div>
+
+    <div class="cert-card reveal" style="transition-delay:.24s">
+      <div class="cert-badge">🎬</div>
+      <div>
+        <div class="cert-name">Kineme Certification</div>
+        <div class="cert-issuer">Kineme · Motion &amp; Animation</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ 09 · COLLEGE ACTIVITIES ═══════════ -->
+<section id="activities" class="sec">
+  <div class="sec-label reveal">09 — College Activities</div>
+  <h2 class="sec-title reveal">Beyond the<br>Classroom</h2>
+  <div class="activity-grid">
+
+    <div class="activity-card reveal">
+      <span class="activity-icon">🏫</span>
+      <div class="activity-title">NGO Teaching — Government School Students</div>
+      <div class="activity-desc">At ISBR, I worked with an NGO focused on education as part of our social responsibility initiative. I taught government school students from Classes 3 to 6, developing skills in teaching, student management, and communication. I identified key learning challenges and contributed to problem-solving efforts to improve students' educational experience — gaining practical knowledge in understanding real-world problems and implementing solutions.</div>
+    </div>
+
+    <div class="activity-card reveal" style="transition-delay:.1s">
+      <span class="activity-icon">🏆</span>
+      <div class="activity-title">Case Studies, Startup &amp; Business Pitch Competitions</div>
+      <div class="activity-desc">Actively participated in case study challenges, startup competitions, and business pitch events — enhancing analytical thinking, creativity, and presentation skills. These competitions sharpened my ability to think under pressure and communicate business ideas clearly to diverse audiences.</div>
+    </div>
+
+    <div class="activity-card reveal" style="transition-delay:.1s">
+      <span class="activity-icon">🎤</span>
+      <div class="activity-title">Academic Projects &amp; Presentations</div>
+      <div class="activity-desc">Completed multiple academic projects and delivered formal presentations as part of coursework. Built strong research synthesis, structured thinking, and public communication abilities through consistent academic participation and peer-facing deliverables.</div>
+    </div>
+
+    <div class="activity-card reveal" style="transition-delay:.2s">
+      <span class="activity-icon">⚽</span>
+      <div class="activity-title">Sports &amp; Athletics</div>
+      <div class="activity-desc">Winner in football at college level. Participated in running and long jump events, and completed marathons — reflecting physical discipline, competitive drive, teamwork, and sustained endurance both on and off the field.</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ 10 · ACHIEVEMENTS ═══════════ -->
+<section id="achievements" class="sec">
+  <div class="sec-label reveal">10 — Achievements</div>
+  <h2 class="sec-title reveal">Milestones &amp;<br>Recognition</h2>
+  <div class="achieve-list">
+
+    <div class="achieve-card reveal">
+      <div class="achieve-num">01</div>
+      <div>
+        <div class="achieve-title">Undergraduate Class Representative</div>
+        <div class="achieve-desc">Demonstrated leadership and coordination by actively interacting with faculty members, the HOD, and fellow students to ensure smooth communication and effective representation across academic departments.</div>
+      </div>
+    </div>
+
+    <div class="achieve-card reveal" style="transition-delay:.08s">
+      <div class="achieve-num">02</div>
+      <div>
+        <div class="achieve-title">Website Ambassador — ISBR Business School</div>
+        <div class="achieve-desc">Promoted institutional initiatives digitally, guided new students about college details, and contributed to increasing student engagement and admissions. Actively involved in managing and supporting the college website's digital presence and outreach efforts.</div>
+      </div>
+    </div>
+
+    <div class="achieve-card reveal" style="transition-delay:.12s">
+      <div class="achieve-num">03</div>
+      <div>
+        <div class="achieve-title">Internship Committee Member — ISBR</div>
+        <div class="achieve-desc">Connected with product managers, startup founders, and IT professionals. Supported outreach to companies for internship and placement opportunities, gaining valuable exposure and industry insights into the PM ecosystem and startup world.</div>
+      </div>
+    </div>
+
+    <div class="achieve-card reveal" style="transition-delay:.16s">
+      <div class="achieve-num">04</div>
+      <div>
+        <div class="achieve-title">Startups Club Member — ISBR</div>
+        <div class="achieve-desc">Actively participated in startup events, attended pitch sessions, and competed in startup competitions — building an entrepreneurial mindset, business acumen, and a network of like-minded innovators and founders.</div>
+      </div>
+    </div>
+
+    <div class="achieve-card reveal" style="transition-delay:.2s">
+      <div class="achieve-num">05</div>
+      <div>
+        <div class="achieve-title">Event Organizer</div>
+        <div class="achieve-desc">Organized various events including startup competitions, conclaves, and professional meetings — developing strong planning, logistics, coordination, and execution skills in real-world, high-pressure settings.</div>
+      </div>
+    </div>
+
+    <div class="achieve-card reveal" style="transition-delay:.24s">
+      <div class="achieve-num">06</div>
+      <div>
+        <div class="achieve-title">Sports — Football Winner &amp; Marathon Participant <span class="achieve-badge">Sports</span></div>
+        <div class="achieve-desc">Winner in football at college level. Participated in running and long jump events, and completed marathons — reflecting discipline, competitive drive, and sustained personal endurance in both team and individual sports.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════════ 11 · CONTACT ═══════════ -->
+<section id="contact">
+  <div class="contact-bg">CONNECT</div>
+  <div class="contact-inner reveal">
+    <div class="sec-label" style="text-align:center;margin-bottom:28px">11 — Contact</div>
+    <h2 class="contact-title">Let's build<br><em>something great</em></h2>
+    <p class="contact-sub">Open to Product Manager roles, internships, and collaborative projects. Based in Bangalore — available remotely or on-site across India.</p>
+    <div class="contact-links">
+      <a href="mailto:aravindhjawahar2003@gmail.com" class="contact-link primary">aravindhjawahar2003@gmail.com</a>
+      <a href="https://www.linkedin.com/in/aravindhjawahar2003" target="_blank" class="contact-link">LinkedIn ↗</a>
+      <a href="tel:+919944468179" class="contact-link">+91 9944 468 179</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Aravindh J · Bangalore, India</span>
+  <span>Aspiring Product Manager ✦</span>
+</footer>
+
+<script>
+// Custom cursor
+const cursor=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button,.proj-card,.stat,.edu-card,.tool-card,.cert-card,.achieve-card,.activity-card,.research-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='20px';cursor.style.height='20px';ring.style.width='60px';ring.style.height='60px';ring.style.opacity='.8';});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='12px';cursor.style.height='12px';ring.style.width='40px';ring.style.height='40px';ring.style.opacity='.5';});
+});
+
+// 3D avatar tilt
+const card3d=document.getElementById('card3d'),cardGlow=document.getElementById('cardGlow'),avatarWrap=document.getElementById('avatarCard');
+avatarWrap.addEventListener('mousemove',e=>{
+  const r=card3d.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,cx=r.width/2,cy=r.height/2;
+  card3d.style.transform=`perspective(800px) rotateX(${-((y-cy)/cy)*14}deg) rotateY(${((x-cx)/cx)*14}deg) scale(1.02)`;
+  cardGlow.style.left=x+'px';cardGlow.style.top=y+'px';cardGlow.style.opacity='1';
+});
+avatarWrap.addEventListener('mouseleave',()=>{card3d.style.transform='perspective(800px) rotateX(0) rotateY(0) scale(1)';cardGlow.style.opacity='0';});
+
+// Project card 3D tilt
+document.querySelectorAll('.proj-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,cx=r.width/2,cy=r.height/2;
+    card.style.transform=`perspective(600px) rotateX(${-((y-cy)/cy)*7}deg) rotateY(${((x-cx)/cx)*7}deg)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='perspective(600px) rotateX(0) rotateY(0)';});
+});
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');}),{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+
+// Grid parallax
+window.addEventListener('scroll',()=>{const g=document.querySelector('.grid-plane');if(g)g.style.transform=`rotateX(70deg) translateZ(${window.scrollY*0.08}px)`;});
+</script>
+</body>
+</html>
