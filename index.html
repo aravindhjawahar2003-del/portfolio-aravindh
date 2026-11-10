@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aravindh J | Product Management Portfolio</title>
+<meta name="description" content="Aravindh Jawahar — aspiring Product Manager and founder of PM Job Getaway. PGDM in Product Management at ISBR Business School, Bengaluru.">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red: hsl(355 78% 42%);
+  --red-dark: hsl(355 78% 32%);
+  --blue: hsl(214 80% 34%);
+  --blue-dark: hsl(214 80% 26%);
+  --teal: hsl(178 72% 26%);
+  --teal-dark: hsl(178 72% 20%);
+  --amber: hsl(34 95% 44%);
+  --amber-dark: hsl(34 95% 34%);
+  --ink: #171410;
+  --ink-soft: #2c2822;
+  --muted: #55504a;
+  --paper: #fffdf6;
+  --paper-2: #faf6ec;
+  --card: #ffffff;
+  --line: #ddd5c3;
+  color-scheme: light;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"Work Sans", system-ui, sans-serif;
+  font-size:17.5px;
+  line-height:1.68;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  /* The heading and masthead animations slide elements in from the side;
+     clip any momentary sideways spill so no device ever gets a
+     horizontal scrollbar. `clip` (unlike `hidden`) creates no scroll
+     container, so the sticky nav keeps working. */
+  overflow-x:hidden;
+  overflow-x:clip;
+}
+img{max-width:100%;display:block}
+a{color:var(--blue);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,.serif{font-family:"Instrument Serif", Georgia, serif;font-weight:400}
+::selection{background:var(--amber);color:#fff}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:sticky;top:0;z-index:100;height:72px;
+  background:#ffffff;
+  border-bottom:3px solid var(--red);
+  box-shadow:0 6px 22px hsla(214 80% 34% / .22);
+}
+.nav-inner{max-width:1160px;margin:0 auto;height:72px;padding:0 20px;display:flex;align-items:center;gap:18px}
+.nav-brand{font-family:"Instrument Serif",serif;font-size:1.45rem;letter-spacing:.04em;color:var(--ink);white-space:nowrap}
+.nav-brand b{color:var(--red);font-weight:400}
+/* The heading navigation list lives only inside the menu panel: it is
+   never shown in the bar itself, at any width. It appears only when the
+   menu button is clicked. */
+.nav-links{display:none}
+.nav-links>li{position:relative;display:flex;align-items:center}
+.nav-links>li>a{
+  display:flex;align-items:center;gap:7px;height:72px;padding:0 9px;
+  font-size:.97rem;font-weight:600;color:var(--ink);white-space:nowrap;
+}
+.nav-links>li>a:hover{color:var(--red);text-decoration:none}
+.nav-links .caret{font-size:.68rem;color:var(--red)}
+/* Heading navigation icons — one unique professional mark per heading:
+   a small editorial tile (one sharp corner, like a folded page) in the
+   section's own colour, holding a fine line icon. On hover the tile
+   fills solid with its colour and the icon turns white. */
+.nav-ic{
+  --nc:var(--ink);
+  width:28px;height:28px;flex:0 0 28px;
+  display:inline-flex;align-items:center;justify-content:center;
+  color:var(--nc);
+  background:#ffffff;
+  background:color-mix(in srgb, var(--nc) 9%, #ffffff);
+  border:1.5px solid var(--nc);
+  border:1.5px solid color-mix(in srgb, var(--nc) 55%, #ffffff);
+  border-radius:8px 8px 8px 2px;
+  transition:background .25s ease,color .25s ease,transform .25s ease,border-color .25s ease;
+}
+.nav-ic svg{width:16px;height:16px;display:block}
+.nav-links>li>a:hover .nav-ic,.nav-links>li>a:focus-visible .nav-ic,
+.submenu a:hover .nav-ic,.submenu a:focus-visible .nav-ic,
+.mobile-menu a:hover .nav-ic,.mobile-menu a:focus-visible .nav-ic{
+  background:var(--nc);color:#fff;border-color:var(--nc);transform:translateY(-1px);
+}
+.submenu{
+  display:none;position:absolute;top:72px;left:0;min-width:230px;
+  background:#fff;border:1px solid var(--line);border-top:3px solid var(--blue);
+  box-shadow:0 14px 30px rgba(23,20,16,.16);list-style:none;padding:8px 0;
+}
+.submenu a{display:flex;align-items:center;gap:10px;padding:9px 14px;font-size:1rem;font-weight:500;color:var(--ink)}
+.submenu a:hover{background:var(--paper-2);color:var(--blue);text-decoration:none}
+.submenu .nav-ic{width:26px;height:26px;flex-basis:26px}
+.submenu .nav-ic svg{width:15px;height:15px}
+@media (prefers-reduced-motion: reduce){
+  .nav-ic{transition:none}
+  .nav-links>li>a:hover .nav-ic,.submenu a:hover .nav-ic,.mobile-menu a:hover .nav-ic{transform:none}
+}
+.nav-links>li:hover .submenu,.nav-links>li:focus-within .submenu{display:block}
+/* Menu button — a unique editorial mark, not a stock hamburger: three
+   "column rules" of descending length, like lines of newspaper type,
+   the top rule in masthead red, set in the same folded-corner tile the
+   nav icons use with a small offset print shadow. When the menu opens
+   the tile turns ink-dark, the rules settle to one length and fold
+   into an ×. */
+.burger{
+  display:flex;margin-left:auto;cursor:pointer;position:relative;
+  width:48px;height:44px;padding:0 13px;
+  flex-direction:column;align-items:flex-start;justify-content:center;gap:5px;
+  background:#fff;border:1.5px solid var(--ink);border-radius:9px 9px 9px 2px;
+  box-shadow:2.5px 2.5px 0 var(--paper-2),2.5px 2.5px 0 1.5px var(--line);
+  transition:background .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.burger span{
+  display:block;height:2.5px;border-radius:2px;background:var(--ink);
+  transition:width .3s ease,transform .3s ease,opacity .25s ease,background-color .25s ease;
+}
+.burger span:nth-child(1){width:24px;background:var(--red)}
+.burger span:nth-child(2){width:17px}
+.burger span:nth-child(3){width:11px}
+.burger:hover{border-color:var(--red);box-shadow:3.5px 3.5px 0 var(--paper-2),3.5px 3.5px 0 1.5px var(--red)}
+.burger:focus-visible{outline:2.5px solid var(--blue);outline-offset:2px}
+.burger[aria-expanded="true"]{background:var(--ink);border-color:var(--ink);box-shadow:2.5px 2.5px 0 var(--paper-2),2.5px 2.5px 0 1.5px var(--ink)}
+.burger[aria-expanded="true"] span{width:22px;background:#fff}
+.burger[aria-expanded="true"] span:nth-child(1){background:var(--red);transform:translateY(7.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(.2)}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+@media (prefers-reduced-motion: reduce){
+  .burger,.burger span{transition:none}
+}
+.mobile-menu{display:none;background:#fff;border-bottom:3px solid var(--red);box-shadow:0 18px 30px rgba(23,20,16,.15);max-height:calc(100vh - 72px);overflow-y:auto}
+.mobile-menu.open{display:block}
+@media (min-width:1081px){
+  .mobile-menu.open{display:grid;grid-template-columns:1fr 1fr;grid-auto-flow:column;grid-template-rows:repeat(7,auto);column-gap:44px;padding:10px max(20px,calc((100% - 1160px)/2 + 20px))}
+  .mobile-menu a{padding-left:10px;padding-right:10px}
+  .mobile-menu a.sub{padding-left:24px}
+}
+.mobile-menu a{display:flex;align-items:center;gap:12px;padding:11px 22px;font-weight:600;color:var(--ink);border-top:1px solid var(--line)}
+.mobile-menu a.sub{padding-left:34px;font-weight:500;color:var(--blue)}
+.mobile-menu .nav-ic{width:32px;height:32px;flex-basis:32px}
+.mobile-menu .nav-ic svg{width:18px;height:18px}
+.mobile-menu a.sub .nav-ic{width:27px;height:27px;flex-basis:27px}
+.mobile-menu a.sub .nav-ic svg{width:15px;height:15px}
+.mobile-menu a:hover{background:var(--paper-2);text-decoration:none}
+
+/* ---------- MASTHEAD ---------- */
+.masthead{max-width:1160px;margin:0 auto;padding:34px 20px 0;text-align:center}
+.masthead .rule-top{border-top:4px solid var(--ink);border-bottom:1px solid var(--ink);height:7px;margin-bottom:22px}
+.mast-name{
+  font-family:"Instrument Serif",serif;text-transform:uppercase;
+  font-size:clamp(3rem,9.5vw,6.4rem);line-height:.98;letter-spacing:.015em;color:var(--red);
+}
+.mast-tag{font-size:1.12rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-top:12px}
+.mast-tag .dot{color:var(--amber)}
+.edition-line{
+  margin-top:18px;border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+  padding:9px 6px;display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:center;
+  font-size:.98rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+}
+.edition-line .e-red{color:var(--red)} .edition-line .e-blue{color:var(--blue)}
+.edition-line .e-teal{color:var(--teal)} .edition-line .e-amber{color:var(--amber-dark)}
+
+/* ---------- LAYOUT ---------- */
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+section{scroll-margin-top:92px}
+.section{padding:56px 0 8px;border-top:5px solid var(--accent,var(--red));margin-top:56px}
+.section-head{margin-bottom:30px}
+.chip{
+  display:inline-block;background:var(--accent,var(--red));color:#fff;
+  font-size:.92rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  padding:6px 14px 5px;margin-bottom:16px;
+}
+.section-title{font-size:clamp(2.1rem,4.6vw,3.1rem);line-height:1.08;color:var(--ink)}
+.section-title em{color:var(--accent,var(--red));font-style:italic}
+.section-sub{font-size:1.14rem;color:var(--ink-soft);max-width:820px;margin-top:12px}
+.kicker{font-size:.95rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent,var(--red));margin-bottom:10px}
+
+/* ---------- FRONT PAGE ---------- */
+.front{display:grid;grid-template-columns:1fr 340px;gap:38px;padding-top:36px}
+.lead-kicker{color:var(--red)}
+.lead-head{font-size:clamp(2.3rem,5.2vw,3.6rem);line-height:1.06;color:var(--ink)}
+.lead-head em{color:var(--red)}
+.byline{margin:16px 0 20px;padding:10px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  font-size:.98rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.byline b{color:var(--ink)}
+.lead-photo{margin-bottom:8px}
+.lead-photo img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 42%;border:1px solid var(--line)}
+.photo-cap{font-size:.95rem;color:var(--muted);border-bottom:1px solid var(--line);padding:8px 0 14px;margin-bottom:20px}
+.lead p{margin-bottom:18px;font-size:1.13rem;color:var(--ink-soft)}
+.lead p strong{color:var(--ink)}
+.dropcap::first-letter{
+  font-family:"Instrument Serif",serif;font-size:4.4em;float:left;line-height:.78;
+  padding:6px 12px 0 0;color:var(--red);
+}
+.pull{
+  font-family:"Instrument Serif",serif;font-style:italic;font-size:1.55rem;line-height:1.35;
+  border-left:5px solid var(--amber);padding:6px 0 6px 20px;margin:26px 0;color:var(--ink);
+}
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--ink);margin:28px 0 6px;background:#fff}
+.metric{padding:16px 14px;text-align:center;border-right:1px solid var(--line)}
+.metric:last-child{border-right:none}
+.metric .num{font-family:"Instrument Serif",serif;font-size:2.15rem;line-height:1;color:var(--blue)}
+.metric:nth-child(1) .num{color:var(--red)} .metric:nth-child(3) .num{color:var(--teal)} .metric:nth-child(4) .num{color:var(--amber-dark)}
+.metric .lab{font-size:.9rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+/* sidebar */
+.sidebar{display:flex;flex-direction:column;gap:26px}
+.side-box{border:2px solid var(--ink);background:#fff}
+.side-box .side-head{background:var(--ink);color:#fff;font-family:"Instrument Serif",serif;font-size:1.3rem;padding:10px 16px;letter-spacing:.02em}
+.side-box .side-body{padding:16px 18px}
+.side-box ul{list-style:none}
+.side-box li{border-bottom:1px solid var(--line);padding:9px 0}
+.side-box li:last-child{border-bottom:none}
+.side-box li a{font-weight:600;color:var(--ink);font-size:1.05rem}
+.side-box li a:hover{color:var(--red)}
+.side-box li span{display:block;font-size:.93rem;color:var(--muted);font-weight:400}
+.seeking{border-top:5px solid var(--amber)}
+.seeking .side-head{background:var(--amber-dark)}
+.seeking p{font-size:1.05rem;color:var(--ink-soft)}
+.seeking .big{font-family:"Instrument Serif",serif;font-size:1.45rem;color:var(--ink);line-height:1.3;margin-bottom:8px}
+.side-story{border-top:4px solid var(--c,var(--blue));padding-top:12px}
+.side-story h3{font-size:1.42rem;line-height:1.2;margin-bottom:6px;font-family:"Instrument Serif",serif;font-weight:400}
+.side-story h3 a{color:var(--ink)}
+.side-story h3 a:hover{color:var(--c,var(--blue));text-decoration:none}
+.side-story p{font-size:1rem;color:var(--ink-soft)}
+.side-story .tag{font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--c,var(--blue))}
+
+/* ---------- CARDS & GRIDS ---------- */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--accent,var(--blue));padding:26px 26px 24px}
+.card h3{font-size:1.62rem;line-height:1.18;margin-bottom:6px}
+.card h4{font-family:"Instrument Serif",serif;font-size:1.3rem;font-weight:400;margin:18px 0 6px;color:var(--accent,var(--blue))}
+.card p{color:var(--ink-soft);margin-bottom:13px;font-size:1.05rem}
+.card p:last-child{margin-bottom:0}
+.card .meta-line{font-size:.95rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--accent,var(--blue));margin-bottom:10px}
+.card ul{margin:0 0 13px 20px;color:var(--ink-soft);font-size:1.05rem}
+.card ul li{margin-bottom:5px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chips span{border:1.5px solid var(--accent,var(--blue));color:var(--accent-dark,var(--blue-dark));
+  font-size:.95rem;font-weight:600;padding:4px 12px;border-radius:999px;background:#fff}
+.doc-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  margin-top:20px;background:var(--paper-2);color:var(--ink);border:1.5px solid var(--ink);padding:14px 18px;
+}
+.doc-bar .doc-txt{font-weight:600;font-size:1.02rem}
+.doc-bar a{background:var(--amber);color:#fff;font-weight:700;padding:9px 18px;white-space:nowrap}
+.doc-bar a:hover{background:var(--amber-dark);text-decoration:none}
+.btn{
+  display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:1.08rem;
+  padding:14px 28px;border:2px solid var(--red);
+}
+.btn:hover{background:var(--red-dark);border-color:var(--red-dark);text-decoration:none}
+.btn.blue{background:var(--blue);border-color:var(--blue)} .btn.blue:hover{background:var(--blue-dark);border-color:var(--blue-dark)}
+
+/* numbered steps */
+.steps{list-style:none;counter-reset:step;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px;margin-top:8px}
+.steps li{background:#fff;border:1px solid var(--line);border-top:5px solid var(--accent,var(--red));padding:20px 18px;position:relative}
+.steps li::before{
+  counter-increment:step;content:counter(step);
+  font-family:"Instrument Serif",serif;font-size:2rem;line-height:1;color:var(--accent,var(--red));display:block;margin-bottom:8px;
+}
+.steps b{display:block;font-size:1.08rem;margin-bottom:5px}
+.steps p{font-size:1rem;color:var(--ink-soft)}
+
+/* stats band */
+.stats-band{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:26px 0 6px}
+.stat{background:#fff;border:1px solid var(--line);border-top:5px solid var(--accent,var(--blue));padding:20px;text-align:center}
+.stat .num{font-family:"Instrument Serif",serif;font-size:2.3rem;line-height:1.05;color:var(--accent,var(--blue))}
+.stat .lab{font-size:.95rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:7px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:330px 1fr;gap:34px;align-items:start}
+.about-slides{position:relative;width:100%;aspect-ratio:4/5;border:1px solid var(--line);overflow:hidden}
+.about-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;opacity:0;transition:opacity 1.4s ease}
+.about-slides img.on{opacity:1}
+.about-photo .photo-cap{margin-bottom:0}
+.story p{margin-bottom:17px;font-size:1.12rem;color:var(--ink-soft)}
+.story p strong{color:var(--ink)}
+
+/* roadmap */
+.roadmap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.roadmap .card h3{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.when{font-family:"Work Sans",sans-serif;font-size:.85rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:4px 10px}
+.when.now{background:var(--red)} .when.next{background:var(--blue)} .when.later{background:var(--teal)}
+
+/* skills */
+.skill-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.skill{background:#fff;border:1px solid var(--line);border-left:6px solid var(--amber);padding:16px 20px}
+.skill b{font-size:1.1rem;display:block}
+.skill p{font-size:1rem;color:var(--ink-soft)}
+.know-list{columns:2;column-gap:34px;margin:6px 0 0 20px;color:var(--ink-soft);font-size:1.06rem}
+.know-list li{margin-bottom:9px;break-inside:avoid}
+
+/* milestones */
+.mile{display:grid;grid-template-columns:74px 1fr;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
+.mile:last-child{border-bottom:none}
+.mile .no{font-family:"Instrument Serif",serif;font-size:3rem;line-height:1;color:var(--accent,var(--blue))}
+.mile h3{font-size:1.55rem;margin-bottom:6px}
+.mile p{color:var(--ink-soft);font-size:1.07rem;max-width:880px}
+
+/* Milestone photo slideshow: the presentation photos on the right,
+   crossfading with a slow zoom and the running shine sweep */
+.mile-photo{grid-template-columns:74px 1fr 300px}
+.mile-slides{position:relative;width:100%;aspect-ratio:4/5;border:1px solid var(--line);overflow:hidden;box-shadow:6px 6px 0 var(--paper-2),6px 6px 0 1.5px var(--line)}
+.mile-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transform:scale(1.1);transition:opacity 1.1s ease,transform 2.6s ease}
+.mile-slides img.on{opacity:1;transform:scale(1.02)}
+.mile-slides::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.35) 50%,transparent 58%);
+  transform:translateX(-130%);animation:logoShine 4.2s ease-in-out infinite;
+}
+.mile-photo .photo-cap{margin:8px 0 0;border-bottom:none;padding-bottom:0}
+@media (max-width:860px){
+  .mile-photo{grid-template-columns:52px 1fr}
+  .mile-photo figure{grid-column:1/-1;max-width:340px}
+}
+@media (prefers-reduced-motion: reduce){
+  .mile-slides img{transition:none;transform:none}
+  .mile-slides::after{display:none}
+}
+
+/* achievements */
+.ach-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ach{background:#fff;border:1px solid var(--line);border-top:5px solid var(--accent,var(--red));padding:22px}
+.ach .num{font-family:"Instrument Serif",serif;font-size:2.2rem;color:var(--accent,var(--red));line-height:1}
+.ach b{display:block;font-size:1.1rem;margin:8px 0 5px}
+.ach p{font-size:1rem;color:var(--ink-soft)}
+.cert-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cert{background:var(--ink);color:#fff;padding:20px;text-align:center}
+.cert .cert-name{font-family:"Instrument Serif",serif;font-size:1.35rem;line-height:1.25}
+.cert .cert-lab{font-size:.88rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+
+/* education */
+.edu-row{display:grid;grid-template-columns:190px 1fr;gap:22px;padding:22px 0;border-bottom:1px solid var(--line)}
+.edu-row:last-child{border-bottom:none}
+.edu-years{font-weight:800;font-size:1.05rem;color:var(--accent,var(--teal))}
+.edu-row h3{font-size:1.6rem;line-height:1.2}
+.edu-row p{color:var(--ink-soft);font-size:1.06rem}
+.edu-score{display:inline-block;margin-top:8px;font-weight:700;color:var(--teal-dark);border:1.5px solid var(--teal);padding:3px 12px;border-radius:999px;font-size:.98rem}
+
+/* resume */
+.resume-grid{display:grid;grid-template-columns:1fr 360px;gap:30px;align-items:start}
+.resume-side{border:2px solid var(--ink);background:#fff;padding:26px}
+.resume-side h3{font-size:1.55rem;margin-bottom:10px}
+.resume-side p{color:var(--ink-soft);font-size:1.03rem;margin-bottom:16px}
+.resume-actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn-download{background:#fff;color:var(--blue);border-color:var(--blue)}
+.btn-download:hover{background:var(--paper-2);border-color:var(--blue-dark);color:var(--blue-dark)}
+
+/* footer / contact */
+footer{margin-top:64px;background:var(--ink);color:#f3eee2}
+.foot-inner{max-width:1160px;margin:0 auto;padding:56px 20px 30px}
+.foot-head{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;color:#fff;font-family:"Instrument Serif",serif}
+.foot-head em{color:var(--amber)}
+.foot-sub{font-size:1.13rem;color:#d8d2c2;max-width:720px;margin-top:14px}
+.directory{display:grid;grid-template-columns:repeat(3,1fr);gap:22px 30px;margin:36px 0;padding:28px 0;border-top:1px solid #4a443a;border-bottom:1px solid #4a443a}
+.directory a{color:#fff;font-weight:600;font-size:1.06rem;display:block;word-break:break-word}
+.directory span{display:block;font-size:.9rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--amber);margin-bottom:4px}
+.directory a:hover{color:var(--amber)}
+.colophon{display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:space-between;font-size:.98rem;color:#bdb5a2}
+.colophon a{color:#fff;font-weight:600}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- MOTION ONLY (colours, fonts, positions unchanged) ---------- */
+/* Masthead name: "AJ" appears first, then ARAVINDH JAWAHAR runs in letter by letter */
+.mast-name.mast-play{display:grid;place-items:center;overflow:hidden}
+.mast-name.mast-play>*{grid-area:1/1}
+.mast-aj{display:inline-block;opacity:0;animation:ajShow 1.2s cubic-bezier(.22,.9,.3,1) .15s forwards}
+@keyframes ajShow{
+  0%{opacity:0;transform:scale(.55);filter:blur(6px)}
+  28%{opacity:1;transform:scale(1.04);filter:blur(0)}
+  42%{transform:scale(1)}
+  78%{opacity:1;transform:scale(1)}
+  100%{opacity:0;transform:scale(1.22);filter:blur(5px);visibility:hidden}
+}
+.mast-full{display:inline-block}
+.mast-word{display:inline-block;white-space:nowrap}
+.ml{display:inline-block;opacity:0;animation:mastLetterRun .55s cubic-bezier(.2,.85,.3,1) forwards;animation-delay:calc(1.15s + var(--li,0)*55ms)}
+@keyframes mastLetterRun{
+  0%{opacity:0;transform:translateX(72px) skewX(-14deg);filter:blur(5px)}
+  60%{opacity:1;filter:blur(0)}
+  100%{opacity:1;transform:translateX(0) skewX(0);filter:blur(0)}
+}
+/* after the run-in, the name keeps moving — a gentle travelling wave, letter by letter */
+.mast-name.mast-loop .ml{opacity:1;animation:mastWave 3.2s ease-in-out infinite;animation-delay:calc(var(--li,0)*90ms)}
+@keyframes mastWave{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-7px)}
+}
+/* a light sweep keeps running across the name */
+.mast-name.mast-play::after{
+  content:"";grid-area:1/1;align-self:stretch;justify-self:stretch;pointer-events:none;
+  background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.38) 50%,transparent 58%);
+  transform:translateX(-130%);animation:mastShine 4.6s ease-in-out 3.4s infinite;
+}
+@keyframes mastShine{
+  0%{transform:translateX(-130%)}
+  45%,100%{transform:translateX(130%)}
+}
+
+/* Every heading: its words run in, one after another, when the heading arrives */
+.wm{display:inline-block}
+.wi{display:inline-block;opacity:0}
+.has-move.head-in .wi{animation:wordRun .6s cubic-bezier(.2,.85,.3,1) forwards;animation-delay:calc(var(--wi,0)*75ms)}
+@keyframes wordRun{
+  0%{opacity:0;transform:translateX(38px) translateY(8px) skewX(-9deg);filter:blur(4px)}
+  60%{opacity:1;filter:blur(0)}
+  100%{opacity:1;transform:translateX(0) translateY(0) skewX(0);filter:blur(0)}
+}
+
+/* Moving from one heading to the next: the section rule draws itself across,
+   and the section chip slides in ahead of its heading */
+.section{position:relative}
+.section::before{
+  content:"";position:absolute;top:-5px;left:0;height:5px;width:100%;
+  background:var(--accent,var(--red));transform:scaleX(0);transform-origin:left center;
+}
+.section.in::before{animation:lineRun .9s cubic-bezier(.2,.85,.3,1) .1s forwards}
+@keyframes lineRun{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.section .chip{transform:translateX(-26px);opacity:0}
+.section.in .chip{animation:chipRun .55s cubic-bezier(.2,.85,.3,1) forwards}
+@keyframes chipRun{from{transform:translateX(-26px);opacity:0}to{transform:translateX(0);opacity:1}}
+
+@media (prefers-reduced-motion: reduce){
+  .mast-aj{display:none}
+  .mast-name.mast-play{display:block;overflow:visible}
+  .mast-name.mast-play::after{display:none}
+  .ml{opacity:1;animation:none}
+  .wi{opacity:1}
+  .has-move.head-in .wi{animation:none}
+  .section::before{display:none}
+  .section .chip{transform:none;opacity:1;animation:none}
+  .section.in .chip{animation:none}
+}
+
+/* ---------- FINAL CORRECTION ADDITIONS ---------- */
+/* Every logo: a shine sweep that keeps running */
+.logo-shine{position:relative;display:inline-block;overflow:hidden;line-height:0;vertical-align:middle}
+.logo-shine::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.75) 50%,transparent 62%);
+  transform:translateX(-130%);animation:logoShine 3.8s ease-in-out infinite;
+}
+@keyframes logoShine{
+  0%{transform:translateX(-130%)}
+  42%,100%{transform:translateX(130%)}
+}
+
+/* Education logos: moving + highlighted */
+.edu-inst{display:flex;align-items:center;gap:16px;margin:2px 0 8px;flex-wrap:wrap}
+.edu-inst .inst-name{font-size:1.13rem;color:var(--ink)}
+.edu-logo{background:#fff;border:1.5px solid var(--line);padding:6px 10px;animation:eduGlow 3.2s ease-in-out infinite}
+.edu-logo img{height:58px;width:auto;max-width:230px;object-fit:contain;animation:eduFloat 3.2s ease-in-out infinite}
+@keyframes eduFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes eduGlow{
+  0%,100%{box-shadow:0 0 0 0 hsla(34 95% 44% / 0)}
+  50%{box-shadow:0 0 0 4px hsla(34 95% 44% / .28)}
+}
+
+/* Internship company line: logo beside the company name */
+.co-line{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.co-line p{margin-bottom:0}
+.co-logo{background:#fff}
+.co-logo img{height:36px;width:auto;max-width:170px;object-fit:contain}
+.co-badge{
+  font-family:"Instrument Serif",serif;font-size:1.15rem;letter-spacing:.1em;color:var(--teal-dark);
+  border:2px solid var(--teal);background:#fff;padding:5px 14px 4px;line-height:1.2;
+}
+
+/* Founder: platform logo with a classic effect */
+.platform-logo{animation:classicFloat 4.2s ease-in-out infinite}
+.platform-logo img{width:88px;height:88px;border-radius:20px;display:block;animation:classicGlow 4.2s ease-in-out infinite}
+@keyframes classicFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes classicGlow{
+  0%,100%{box-shadow:0 6px 18px rgba(23,20,16,.18)}
+  50%{box-shadow:0 12px 30px hsla(262 60% 45% / .45)}
+}
+.founder-brand{display:flex;align-items:center;gap:18px;margin:4px 0 22px;flex-wrap:wrap}
+.founder-brand .fb-txt{font-size:1.05rem;color:var(--ink-soft);max-width:640px}
+.founder-more{margin-top:30px;font-size:1.12rem}
+.founder-more a{font-weight:700}
+
+/* Book cover in the author section */
+.book-cover{float:right;width:248px;margin:6px 0 18px 28px}
+.book-cover img{width:100%;border:1px solid var(--line);box-shadow:0 14px 30px rgba(23,20,16,.22)}
+.book-cover figcaption{font-size:.93rem;color:var(--muted);padding-top:8px}
+@media (max-width:640px){
+  .book-cover{float:none;margin:0 auto 20px;width:220px}
+}
+
+/* Every heading: a shine sweep that runs always */
+h1,h2,h3,h4,.foot-head,.side-head,.cert-name{position:relative}
+h1::after,h2::after,h3::after,h4::after,.foot-head::after,.side-head::after,.cert-name::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.5) 50%,transparent 58%);
+  background-size:280% 100%;background-position:125% 0;
+  animation:headShine 5.2s ease-in-out infinite;animation-delay:var(--shine-delay,0s);
+}
+@keyframes headShine{
+  0%{background-position:125% 0}
+  38%,100%{background-position:-25% 0}
+}
+
+/* About stat boxes: highlighted number boxes for the count-up effect */
+#about .stat{border:2px solid var(--ink);box-shadow:5px 5px 0 var(--paper-2),5px 5px 0 2px var(--line)}
+
+/* Let's Connect: highlighted items with a moving shine */
+.directory>div{
+  position:relative;overflow:hidden;padding:16px 18px;
+  background:rgba(255,255,255,.055);border:1px solid #57503f;
+}
+.directory>div::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.22) 50%,transparent 58%);
+  transform:translateX(-130%);animation:logoShine 4.6s ease-in-out infinite;
+}
+.directory>div:nth-child(3n+2)::after{animation-delay:1.2s}
+.directory>div:nth-child(3n)::after{animation-delay:2.4s}
+.directory a{position:relative;z-index:1}
+.directory>div{animation:connectPulse 4.6s ease-in-out infinite}
+.directory>div:nth-child(3n+2){animation-delay:1.2s}
+.directory>div:nth-child(3n){animation-delay:2.4s}
+@keyframes connectPulse{
+  0%,100%{border-color:#57503f}
+  50%{border-color:var(--amber)}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .logo-shine::after,.directory>div::after{display:none}
+  h1::after,h2::after,h3::after,h4::after,.foot-head::after,.side-head::after,.cert-name::after{display:none}
+  .edu-logo,.edu-logo img,.platform-logo,.platform-logo img,.directory>div{animation:none}
+}
+
+/* ---------- BOLD + HIGHLIGHT + SHINE — every heading and every topic ---------- */
+/* Every heading shows bold */
+h1,h2,h3,h4,.foot-head,.side-head,.cert-name{font-weight:700}
+
+/* Every heading's words are highlighted with an accent underline instead —
+   a line in the section's own colour that draws itself beneath each word as
+   the heading arrives, with no colour behind the letters at all — under the
+   shine sweep that already runs on all headings */
+.has-move .wi{
+  background-image:linear-gradient(to right, hsla(38 96% 52% / .9), hsla(38 96% 52% / .9));
+  background-image:linear-gradient(to right, color-mix(in srgb, var(--accent, var(--amber)) 85%, transparent), color-mix(in srgb, var(--accent, var(--amber)) 85%, transparent));
+  background-repeat:no-repeat;
+  background-position:0 100%;
+  background-size:0% 3px;
+  padding-bottom:3px;
+  transition:background-size .55s ease;
+  transition-delay:calc(var(--wi,0)*75ms + .35s);
+}
+.has-move.head-in .wi{background-size:100% 3px}
+/* no underline inside the Now/Next/Later badges or on the dark footer headline */
+.has-move .when .wi,.foot-head .wi{background-image:none;transition:none}
+
+/* Topics under the headings: card topic lines and skill / step topic names
+   carry the same accent underline highlight — no fill behind the letters —
+   all bold, all with a shine sweep that keeps running */
+.meta-line{
+  display:inline-block;padding:3px 2px 6px;position:relative;overflow:hidden;
+  background-image:linear-gradient(to right, hsla(38 96% 52% / .9), hsla(38 96% 52% / .9));
+  background-image:linear-gradient(to right, color-mix(in srgb, var(--accent, var(--blue)) 85%, transparent), color-mix(in srgb, var(--accent, var(--blue)) 85%, transparent));
+  background-repeat:no-repeat;background-position:0 100%;background-size:100% 3px;
+}
+.skill b,.steps b{
+  background-image:linear-gradient(to right, hsla(38 96% 52% / .9), hsla(38 96% 52% / .9));
+  background-image:linear-gradient(to right, color-mix(in srgb, var(--accent, var(--amber)) 85%, transparent), color-mix(in srgb, var(--accent, var(--amber)) 85%, transparent));
+  background-repeat:no-repeat;background-position:0 100%;background-size:100% 3px;padding-bottom:3px;
+}
+.meta-line::after,.skill b::after,.steps b::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.55) 50%,transparent 58%);
+  background-size:280% 100%;background-position:125% 0;
+  animation:headShine 5.2s ease-in-out infinite;
+}
+.skill b,.steps b{position:relative}
+
+/* Internship company logos: shown bigger beside the company name */
+.co-logo img{height:58px;max-width:230px}
+.co-badge{font-size:1.4rem;padding:8px 18px 7px}
+
+/* ---------- SELECTIVE UNDERLINE REMOVAL (headings keep theirs) ---------- */
+/* Topics named for removal: no accent underline under their words at all */
+.has-move.no-uline .wi{background-image:none;transition:none}
+/* Research ongoing lines + any plain meta line: underline removed entirely */
+.meta-line.meta-plain{background-image:none}
+/* Research completed lines: only the word "Completed" loses its underline —
+   the year keeps the line, carried by the .keep-u span */
+.meta-line.meta-split{background-image:none}
+.meta-line .keep-u{
+  background-image:linear-gradient(to right, hsla(38 96% 52% / .9), hsla(38 96% 52% / .9));
+  background-image:linear-gradient(to right, color-mix(in srgb, var(--accent, var(--blue)) 85%, transparent), color-mix(in srgb, var(--accent, var(--blue)) 85%, transparent));
+  background-repeat:no-repeat;background-position:0 100%;background-size:100% 3px;padding-bottom:3px;
+}
+
+/* Handbook title-page image (in the place the game card held) */
+.handbook-img img{width:100%;border:1px solid var(--line);box-shadow:0 12px 26px rgba(23,20,16,.18)}
+.handbook-img figcaption{font-size:.93rem;color:var(--muted);padding-top:8px}
+
+@media (prefers-reduced-motion: reduce){
+  .meta-line::after,.skill b::after,.steps b::after{display:none}
+}
+
+/* ---------- RESPONSIVE — one layout per display size ----------
+   The same page is rebuilt at each width band so it reads as a wide
+   newspaper on a laptop, a comfortable two-column sheet on a tablet
+   (landscape and portrait), and a single easy column with big tap
+   targets on any phone — iPhone, Android, large or small. Nothing is
+   left squeezed in its desktop column count, and nothing scrolls
+   sideways at any width. */
+
+/* Just under the full measure: ease the page margins in a touch */
+@media (max-width:1180px){
+  .nav-inner,.masthead,.wrap,.foot-inner{padding-left:16px;padding-right:16px}
+}
+
+/* Tablet landscape / small laptop: two comfortable columns everywhere */
+@media (max-width:1024px){
+  .front{grid-template-columns:1fr 300px;gap:30px}
+  .grid-3,.ach-grid,.roadmap{grid-template-columns:1fr 1fr}
+  .cert-row{grid-template-columns:1fr 1fr}
+  .about-grid{grid-template-columns:290px 1fr;gap:28px}
+  .resume-grid{grid-template-columns:1fr 320px;gap:26px}
+}
+
+/* Tablet portrait: the front page stacks, the sidebar pairs up,
+   and the four-across number rows become two-by-two */
+@media (max-width:900px){
+  .front{grid-template-columns:1fr}
+  .sidebar{display:grid;grid-template-columns:1fr 1fr;align-items:start}
+  .grid-2,.about-grid,.resume-grid{grid-template-columns:1fr}
+  .about-photo{max-width:360px}
+  .stats-band{grid-template-columns:1fr 1fr}
+  .metric-row{grid-template-columns:1fr 1fr}
+  .metric{border-bottom:1px solid var(--line)}
+  .metric:nth-child(2){border-right:none}
+  .directory{grid-template-columns:1fr 1fr}
+}
+
+/* Small tablet / large phone: cards go single-file, type steps down */
+@media (max-width:700px){
+  .grid-3,.ach-grid,.roadmap,.skill-grid{grid-template-columns:1fr}
+  .know-list{columns:1}
+  .edu-row{grid-template-columns:1fr;gap:6px}
+  .section{padding:44px 0 6px;margin-top:44px}
+  .section-title{font-size:clamp(1.9rem,6.4vw,2.4rem)}
+  .lead-head{font-size:clamp(2rem,7.4vw,2.7rem)}
+  .lead p{font-size:1.07rem}
+  .story p{font-size:1.06rem}
+  .pull{font-size:1.35rem;padding-left:16px}
+  .card h3{font-size:1.5rem}
+  .steps{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+}
+
+/* Phones: one column, tighter spacing, full-width document buttons */
+@media (max-width:560px){
+  body{font-size:16.5px}
+  .nav-inner,.masthead,.wrap,.foot-inner{padding-left:14px;padding-right:14px}
+  .masthead{padding-top:24px}
+  .mast-tag{font-size:1rem;letter-spacing:.1em}
+  .edition-line{font-size:.9rem;gap:6px 18px}
+  .sidebar{grid-template-columns:1fr}
+  .card{padding:22px 20px 20px}
+  .section-sub a{overflow-wrap:anywhere}
+  .doc-bar{flex-direction:column;align-items:stretch}
+  .doc-bar a{text-align:center;padding:12px 18px}
+  .resume-actions .btn{flex:1 1 100%;text-align:center}
+  .mile{grid-template-columns:52px 1fr;gap:14px}
+  .mile .no{font-size:2.4rem}
+  .directory{grid-template-columns:1fr}
+  .metric .num{font-size:1.9rem}
+  .stat .num{font-size:2rem}
+  .edu-logo img{height:48px}
+  .co-logo img{height:48px}
+  .foot-inner{padding-top:44px}
+  .mobile-menu a{min-height:52px}
+}
+
+/* Small phones: slimmer bar, smaller masthead, certificates stack */
+@media (max-width:380px){
+  .nav,.nav-inner{height:64px}
+  .nav-brand{font-size:1.28rem}
+  .mobile-menu{max-height:calc(100vh - 64px);max-height:calc(100dvh - 64px)}
+  section{scroll-margin-top:80px}
+  #contact{scroll-margin-top:64px !important}
+  .mast-name{font-size:2.55rem}
+  .cert-row{grid-template-columns:1fr}
+  .stats-band{gap:12px}
+  .stat{padding:16px 10px}
+  .metric{padding:14px 8px}
+  .btn{padding:13px 20px;font-size:1.02rem}
+  .burger{width:44px;height:42px;padding:0 11px}
+  .chips span{font-size:.9rem;padding:4px 10px}
+}
+
+/* ---------- KINDLE-STYLE READING — phones ----------
+   On iPhone and Android the page reads like the Kindle app: a larger,
+   calm letter size, airy line spacing, a clear gap between every
+   paragraph, and book-like side margins, so long sections stay easy
+   on the eyes and nothing feels squeezed. Headings keep their tight
+   newspaper leading; only the reading text opens up. */
+@media (max-width:700px){
+  body{font-size:18px;line-height:1.82}
+  h3{line-height:1.28}
+  .section-sub{line-height:1.72}
+  .lead p,.story p{font-size:1.16rem;line-height:1.88;margin-bottom:24px}
+  .pull{line-height:1.5}
+  .card p,.card ul,.mile p,.side-story p,.ach p,.edu-row p,
+  .steps p,.skill p,.resume-side p,.seeking p,.foot-sub{line-height:1.78}
+  .card p,.card ul{font-size:1.07rem}
+  .mile p{font-size:1.08rem}
+  .side-story p,.ach p,.steps p,.skill p{font-size:1.03rem}
+  .photo-cap,.book-cover figcaption,.handbook-img figcaption{line-height:1.6}
+}
+@media (max-width:560px){
+  /* Book margins: the text column breathes like a Kindle page */
+  .nav-inner,.masthead,.wrap,.foot-inner{padding-left:20px;padding-right:20px}
+  .lead p,.story p{font-size:1.15rem}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ================= NAV ================= -->
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#home">Aravindh <b>J.</b></a>
+    <ul class="nav-links">
+      <li><a href="#home"><span class="nav-ic" style="--nc:var(--red)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.2 12 4l8 7.2"/><path d="M6.3 9.4V20h11.4V9.4"/><path d="M10 20v-5.2h4V20"/></svg></span>Home</a></li>
+      <li><a href="#about"><span class="nav-ic" style="--nc:var(--blue)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5.2 20c1-3.4 3.5-5 6.8-5s5.8 1.6 6.8 5"/></svg></span>About Me</a></li>
+      <li>
+        <a href="#experience" aria-haspopup="true"><span class="nav-ic" style="--nc:var(--teal)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"/><path d="M3 12.8h18"/><path d="M10.2 12.8v1.6h3.6v-1.6"/></svg></span>Experience <span class="caret">▾</span></a>
+        <ul class="submenu">
+          <li><a href="#founder"><span class="nav-ic" style="--nc:var(--red)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8c2.7 1.9 4.3 5 4.3 8.7l-4.3 2.9-4.3-2.9c0-3.7 1.6-6.8 4.3-8.7Z"/><circle cx="12" cy="9" r="1.9"/><path d="M7.7 13.5 5.8 18l3.2-.8M16.3 13.5 18.2 18l-3.2-.8"/><path d="M10.5 17.2c.4 1.5.9 2.7 1.5 4 .6-1.3 1.1-2.5 1.5-4"/></svg></span>Founder</a></li>
+          <li><a href="#experience"><span class="nav-ic" style="--nc:var(--teal)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"/><path d="M3 12.8h18"/><path d="M10.2 12.8v1.6h3.6v-1.6"/></svg></span>Experience</a></li>
+        </ul>
+      </li>
+      <li><a href="#projects"><span class="nav-ic" style="--nc:var(--blue)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="12.5" rx="1.5"/><path d="M7.5 13v-3M11.2 13V8.8M14.9 13v-2.2"/><path d="M12 16.5v2M8.5 20.5 12 18.5l3.5 2"/></svg></span>Project &amp; Research</a></li>
+      <li><a href="#education"><span class="nav-ic" style="--nc:var(--teal)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 4.2 21.5 9 12 13.8 2.5 9Z"/><path d="M6.2 11.2v4.3c0 1.6 2.6 3 5.8 3s5.8-1.4 5.8-3v-4.3"/><path d="M21.5 9v5"/></svg></span>Education</a></li>
+      <li><a href="#skills"><span class="nav-ic" style="--nc:var(--amber-dark)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5h9M17.5 7.5H20M4 16.5h3.5M12 16.5h8"/><circle cx="15" cy="7.5" r="2.2"/><circle cx="9.5" cy="16.5" r="2.2"/></svg></span>Skills &amp; Tools</a></li>
+      <li>
+        <a href="#achievements" aria-haspopup="true"><span class="nav-ic" style="--nc:var(--red)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5.5a5 5 0 0 1-10 0V4Z"/><path d="M7 5.5H4.2a2.8 2.8 0 0 0 2.9 4.7M17 5.5h2.8a2.8 2.8 0 0 1-2.9 4.7"/><path d="M12 14.5v3M8.5 20.5h7M10 17.5h4l.6 3H9.4l.6-3Z"/></svg></span>Achievements <span class="caret">▾</span></a>
+        <ul class="submenu">
+          <li><a href="#certifications"><span class="nav-ic" style="--nc:var(--amber-dark)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="5.5"/><path d="m9.8 10 1.6 1.6 3-3.2"/><path d="M9 14.8 7.8 20l4.2-2.3L16.2 20 15 14.8"/></svg></span>Certification</a></li>
+          <li><a href="#achievements"><span class="nav-ic" style="--nc:var(--red)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5.5a5 5 0 0 1-10 0V4Z"/><path d="M7 5.5H4.2a2.8 2.8 0 0 0 2.9 4.7M17 5.5h2.8a2.8 2.8 0 0 1-2.9 4.7"/><path d="M12 14.5v3M8.5 20.5h7M10 17.5h4l.6 3H9.4l.6-3Z"/></svg></span>Achievements</a></li>
+        </ul>
+      </li>
+      <li><a href="#resume"><span class="nav-ic" style="--nc:var(--teal)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h8L18.5 8v12.5H6V3.5Z"/><path d="M13.8 3.5v4.7h4.7"/><path d="M9 12h6M9 15.2h6"/></svg></span>Resume</a></li>
+      <li>
+        <a href="#contact" aria-haspopup="true"><span class="nav-ic" style="--nc:var(--blue)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>Contact <span class="caret">▾</span></a>
+        <ul class="submenu">
+          <li><a href="#contact"><span class="nav-ic" style="--nc:var(--teal)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H12l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5v-8Z"/><path d="M8 9h8M8 12h5"/></svg></span>Let&rsquo;s Connect</a></li>
+        </ul>
+      </li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home"><span class="nav-ic" style="--nc:var(--red)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.2 12 4l8 7.2"/><path d="M6.3 9.4V20h11.4V9.4"/><path d="M10 20v-5.2h4V20"/></svg></span>Home</a>
+    <a href="#about"><span class="nav-ic" style="--nc:var(--blue)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M5.2 20c1-3.4 3.5-5 6.8-5s5.8 1.6 6.8 5"/></svg></span>About Me</a>
+    <a href="#experience"><span class="nav-ic" style="--nc:var(--teal)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"/><path d="M3 12.8h18"/><path d="M10.2 12.8v1.6h3.6v-1.6"/></svg></span>Experience</a>
+    <a class="sub" href="#founder"><span class="nav-ic" style="--nc:var(--red)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8c2.7 1.9 4.3 5 4.3 8.7l-4.3 2.9-4.3-2.9c0-3.7 1.6-6.8 4.3-8.7Z"/><circle cx="12" cy="9" r="1.9"/><path d="M7.7 13.5 5.8 18l3.2-.8M16.3 13.5 18.2 18l-3.2-.8"/><path d="M10.5 17.2c.4 1.5.9 2.7 1.5 4 .6-1.3 1.1-2.5 1.5-4"/></svg></span>Founder</a>
+    <a class="sub" href="#experience"><span class="nav-ic" style="--nc:var(--teal)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M8.5 7.5V6a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v1.5"/><path d="M3 12.8h18"/><path d="M10.2 12.8v1.6h3.6v-1.6"/></svg></span>Experience</a>
+    <a href="#projects"><span class="nav-ic" style="--nc:var(--blue)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="12.5" rx="1.5"/><path d="M7.5 13v-3M11.2 13V8.8M14.9 13v-2.2"/><path d="M12 16.5v2M8.5 20.5 12 18.5l3.5 2"/></svg></span>Project &amp; Research</a>
+    <a href="#education"><span class="nav-ic" style="--nc:var(--teal)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 9 12 4.2 21.5 9 12 13.8 2.5 9Z"/><path d="M6.2 11.2v4.3c0 1.6 2.6 3 5.8 3s5.8-1.4 5.8-3v-4.3"/><path d="M21.5 9v5"/></svg></span>Education</a>
+    <a href="#skills"><span class="nav-ic" style="--nc:var(--amber-dark)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.5h9M17.5 7.5H20M4 16.5h3.5M12 16.5h8"/><circle cx="15" cy="7.5" r="2.2"/><circle cx="9.5" cy="16.5" r="2.2"/></svg></span>Skills &amp; Tools</a>
+    <a href="#achievements"><span class="nav-ic" style="--nc:var(--red)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5.5a5 5 0 0 1-10 0V4Z"/><path d="M7 5.5H4.2a2.8 2.8 0 0 0 2.9 4.7M17 5.5h2.8a2.8 2.8 0 0 1-2.9 4.7"/><path d="M12 14.5v3M8.5 20.5h7M10 17.5h4l.6 3H9.4l.6-3Z"/></svg></span>Achievements</a>
+    <a class="sub" href="#certifications"><span class="nav-ic" style="--nc:var(--amber-dark)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="5.5"/><path d="m9.8 10 1.6 1.6 3-3.2"/><path d="M9 14.8 7.8 20l4.2-2.3L16.2 20 15 14.8"/></svg></span>Certification</a>
+    <a class="sub" href="#achievements"><span class="nav-ic" style="--nc:var(--red)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5.5a5 5 0 0 1-10 0V4Z"/><path d="M7 5.5H4.2a2.8 2.8 0 0 0 2.9 4.7M17 5.5h2.8a2.8 2.8 0 0 1-2.9 4.7"/><path d="M12 14.5v3M8.5 20.5h7M10 17.5h4l.6 3H9.4l.6-3Z"/></svg></span>Achievements</a>
+    <a href="#resume"><span class="nav-ic" style="--nc:var(--teal)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h8L18.5 8v12.5H6V3.5Z"/><path d="M13.8 3.5v4.7h4.7"/><path d="M9 12h6M9 15.2h6"/></svg></span>Resume</a>
+    <a href="#contact"><span class="nav-ic" style="--nc:var(--blue)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5.5" width="18" height="13" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>Contact</a>
+    <a class="sub" href="#contact"><span class="nav-ic" style="--nc:var(--teal)" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H12l-4.5 4v-4H6.5A2.5 2.5 0 0 1 4 13.5v-8Z"/><path d="M8 9h8M8 12h5"/></svg></span>Let&rsquo;s Connect</a>
+  </div>
+</nav>
+
+<!-- ================= MASTHEAD ================= -->
+<header class="masthead" id="home">
+  <div class="rule-top"></div>
+  <div class="mast-name">Aravindh Jawahar</div>
+  <div class="mast-tag">Product Management <span class="dot">●</span> Founder <span class="dot">●</span> Author <span class="dot">●</span> Researcher</div>
+  <div class="edition-line">
+    <span class="e-red">Vol. I</span>
+    <span class="e-blue">Bengaluru Edition</span>
+    <span class="e-teal">Personal Portfolio 2026</span>
+    <span class="e-amber">Kumbakonam · Chennai · Bengaluru</span>
+  </div>
+</header>
+
+<!-- ================= FRONT PAGE ================= -->
+<div class="wrap">
+  <div class="front">
+    <article class="lead">
+      <div class="kicker lead-kicker">The Lead Story · Founder&rsquo;s Edition</div>
+      <h1 class="lead-head">He did not wait for a product job. <em>He built a product.</em></h1>
+      <div class="byline">By <b>Aravindh Jawahar</b> · Aspiring Product Manager &amp; Founder · Bengaluru</div>
+      <figure class="lead-photo">
+        <img src="assets/profile-aravindh.jpg" alt="Portrait of Aravindh Jawahar">
+      </figure>
+      <div class="photo-cap">Aravindh Jawahar — PGDM in Product Management at ISBR Business School, Bengaluru, and the founder of PM Job Getaway.</div>
+      <p class="dropcap">Every morning, thousands of fresh graduates open job boards full of hope — and close them in frustration. The &ldquo;entry-level&rdquo; Product Manager postings they find are expired, duplicated, or were never real openings at all. Aravindh Jawahar lived that frustration himself. He is an aspiring Product Manager pursuing a <strong>PGDM in Product Management at ISBR Business School, Bengaluru</strong> — and instead of waiting for someone to fix the problem, he decided to become the person who fixes it.</p>
+      <p>In <strong>October 2026</strong>, he launched <strong>PM Job Getaway</strong> — a verified-only board for entry-level Product Management jobs, where every single listing is checked against its original posting and <strong>re-checked every 12 hours</strong>. If a role closes, it is marked closed. If a link cannot be verified, it does not stay on the board. No expired posts dressed up as fresh ones, no copies of copies — one honest place where a fresher can trust what they see.</p>
+      <p>That is the spirit running through every page of this portfolio. A commerce graduate from Kumbakonam who taught himself the craft of product management deeply enough to write a <strong>466-page handbook</strong> on it. A researcher who has run primary studies on real people and real markets. An author who has written a <strong>50-chapter historical-fantasy novel</strong>. The story, as you will read, is only getting started.</p>
+      <div class="pull">&ldquo;One honest place where every listed PM role is real — and still open.&rdquo;</div>
+      <div class="metric-row">
+        <div class="metric"><div class="num"><span class="count-num" data-target="90">90</span></div><div class="lab">Open Roles</div></div>
+        <div class="metric"><div class="num"><span class="count-num" data-target="134">134</span></div><div class="lab">Jobs Tracked</div></div>
+        <div class="metric"><div class="num"><span class="count-num" data-target="259">259</span></div><div class="lab">Sources Watched</div></div>
+        <div class="metric"><div class="num">12 hrs</div><div class="lab">Re-verification</div></div>
+      </div>
+    </article>
+
+    <aside class="sidebar">
+      <div class="side-box">
+        <div class="side-head">In This Edition</div>
+        <div class="side-body">
+          <ul>
+            <li><a href="#about">About Me</a><span>The commerce graduate who builds products</span></li>
+            <li><a href="#founder">The Founder Story</a><span>How PM Job Getaway was born</span></li>
+            <li><a href="#experience">Experience</a><span>Three internships, three worlds of work</span></li>
+            <li><a href="#projects">Projects &amp; Research</a><span>Case studies and primary research</span></li>
+            <li><a href="#skills">Skills &amp; Tools</a><span>Fourteen skills, honestly earned</span></li>
+            <li><a href="#milestones">Milestones</a><span>Eight stories that built the person</span></li>
+            <li><a href="#resume">The Resume — In Short</a><span>The whole story, briefly told</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="side-box seeking">
+        <div class="side-head">Currently Seeking</div>
+        <div class="side-body">
+          <div class="big">Product Manager roles &amp; internships</div>
+          <p>Open to entry-level PM and APM opportunities, product internships and collaborations — based in Bengaluru, ready to build.</p>
+        </div>
+      </div>
+
+      <div class="side-story" style="--c:var(--red)">
+        <div class="tag">The Platform</div>
+        <h3><a href="#founder">PM Job Getaway</a></h3>
+        <p>90 open roles, 134 tracked, 259 sources — a verified-only board for entry-level PM jobs in India and internationally.</p>
+      </div>
+      <div class="side-story" style="--c:var(--blue)">
+        <div class="tag">The Blueprint</div>
+        <h3><a href="#projects">NegotiateTech</a></h3>
+        <p>Real-time bargaining for electronics e-commerce — a buyer offers, a seller counters, and a fair deal is born.</p>
+      </div>
+      <div class="side-story" style="--c:var(--teal)">
+        <div class="tag">The Novel</div>
+        <h3><a href="#author">Ranavettaiyan</a></h3>
+        <p>A 50-chapter historical-fantasy novel in Tamil, English and Hindi — written, and now being edited for the world.</p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section reveal" id="about" style="--accent:var(--blue);--accent-dark:var(--blue-dark)">
+    <div class="section-head">
+      <span class="chip">About Me</span>
+      <h2 class="section-title">From Kumbakonam&rsquo;s classrooms to <em>Bengaluru&rsquo;s product floor</em></h2>
+    </div>
+    <div class="about-grid">
+      <figure class="about-photo">
+        <div class="about-slides">
+          <img class="on" src="assets/profile-aravindh.jpg" alt="Portrait of Aravindh Jawahar">
+          <img src="assets/photo-blazer.jpg" alt="" aria-hidden="true">
+          <img src="assets/photo-white-shirt.jpg" alt="" aria-hidden="true">
+        </div>
+        <figcaption class="photo-cap">Aravindh Jawahar — commerce graduate, product thinker, founder.</figcaption>
+      </figure>
+      <div class="story">
+        <p>I am <strong>Aravindh Jawahar</strong> — a commerce graduate from <strong>Kumbakonam, Tamil Nadu</strong>, who now builds products that solve his own generation&rsquo;s problems. Home is Kumbakonam; Bengaluru is where I study and build — a <strong>PGDM in Product Management at ISBR Business School (2025–2027)</strong>, and the founder&rsquo;s desk of PM Job Getaway.</p>
+        <p>My path was never a straight line, and that is exactly its strength. It runs through the ledger books of a CA firm in Chennai, where accuracy was not a preference but a duty. Through B2B market research, where I mapped an entire industry company by company. Through product research, where I learned to listen to customers before speaking for them. Through team case studies, academic research on real respondents, and long nights writing a <strong>466-page Product Management handbook</strong> — because I believed that before asking the world for a product job, I should first master the craft on paper.</p>
+        <p>Every stage taught me a different language of business: accounting taught me truth in numbers, research taught me truth in people, and product management taught me how to turn both into something that ships. That is the person behind every project in this edition.</p>
+      </div>
+    </div>
+    <div class="stats-band">
+      <div class="stat"><div class="num">PGDM</div><div class="lab">Product Management · ISBR</div></div>
+      <div class="stat"><div class="num"><span class="count-num" data-target="8.1" data-decimals="1">8.1</span></div><div class="lab">CGPA</div></div>
+      <div class="stat"><div class="num"><span class="count-num" data-target="466">466</span></div><div class="lab">Page PM Handbook Written</div></div>
+      <div class="stat"><div class="num"><span class="count-num" data-target="3">3</span></div><div class="lab">Internships Completed</div></div>
+    </div>
+  </section>
+
+  <!-- ================= FOUNDER ================= -->
+  <section class="section reveal" id="founder" style="--accent:var(--red);--accent-dark:var(--red-dark)">
+    <div class="section-head">
+      <span class="chip">Founder</span>
+      <h2 class="section-title">PM Job Getaway — the board that <em>checks every job, twice a day</em></h2>
+      <p class="section-sub">Founder &amp; CEO since October 2026 · Bengaluru · <a href="https://pm-launchpad.vercel.app" target="_blank" rel="noopener">pm-launchpad.vercel.app</a> · <a href="https://www.linkedin.com/company/pm-job-getaway" target="_blank" rel="noopener">LinkedIn company page</a></p>
+    </div>
+    <div class="founder-brand">
+      <span class="logo-shine platform-logo"><img src="assets/logo-pm-job-getaway.png" alt="PM Job Getaway platform logo — purple rounded square with a white JG monogram"></span>
+      <p class="fb-txt">The mark of the platform — the purple <strong>JG</strong> monogram of <strong>PM Job Getaway</strong>, the verified-only board for entry-level Product Management jobs in India and internationally.</p>
+    </div>
+    <div class="story" style="max-width:920px">
+      <p>Ask any fresher hunting for a first Product Manager role and you will hear the same story. Hours spent applying to postings that quietly expired weeks ago. The same job copied across five sites with five different dates. &ldquo;Entry-level&rdquo; roles that demand years of experience once you open them. The search itself had become the biggest obstacle between talented freshers and their first break.</p>
+      <p>So I built the board I wished existed. <strong>PM Job Getaway</strong> is a verified-only job board for entry-level Product Management roles in <strong>India and internationally</strong>, where a job earns its place only after its original posting is checked on the source — and keeps its place only by being re-verified <strong>every 12 hours</strong>. When a role closes, the board says so. That single promise — <em>every listed role is real and still open</em> — is the whole product, and it is kept every single day.</p>
+      <p>Running it has been my real-world product management school: prioritising what to build with the same matrices professionals use, designing in Figma, planning in Notion and Jira, mapping flows in Miro, tracking everything in Sheets and Excel, and automating the monitoring with n8n and Claude so no closed job ever lingers unnoticed.</p>
+    </div>
+    <div class="metric-row" style="max-width:920px">
+      <div class="metric"><div class="num"><span class="count-num" data-target="90">90</span></div><div class="lab">Open Roles</div></div>
+      <div class="metric"><div class="num"><span class="count-num" data-target="134">134</span></div><div class="lab">Jobs Tracked</div></div>
+      <div class="metric"><div class="num"><span class="count-num" data-target="259">259</span></div><div class="lab">Sources</div></div>
+      <div class="metric"><div class="num">12 hrs</div><div class="lab">Re-verification Cycle</div></div>
+    </div>
+
+    <div class="grid-2" style="margin-top:30px">
+      <div class="card" style="--accent:var(--red)">
+        <div class="meta-line">The PM Toolkit · Matrices</div>
+        <h3>How decisions get made</h3>
+        <p>Every feature and every listing decision runs through the frameworks working product managers rely on — so the board is run like a real product, not a hobby page.</p>
+        <div class="chips" style="--accent:var(--red);--accent-dark:var(--red-dark)">
+          <span>RICE</span><span>ICE</span><span>MoSCoW</span><span>Kano</span><span>SWOT</span><span>TAM–SAM–SOM</span>
+        </div>
+      </div>
+      <div class="card" style="--accent:var(--red)">
+        <div class="meta-line">The PM Toolkit · Tools</div>
+        <h3>How the work gets done</h3>
+        <p>Design, planning, tracking and automation — the daily stack behind the board, from the first wireframe to the 12-hour verification runs.</p>
+        <div class="chips" style="--accent:var(--red);--accent-dark:var(--red-dark)">
+          <span>Figma</span><span>Notion</span><span>Jira</span><span>Miro</span><span>Google Sheets</span><span>Excel</span><span>n8n</span><span>Claude</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="serif" style="font-size:1.8rem;margin:38px 0 6px">The process — five steps, every job, every time</h3>
+    <p style="color:var(--ink-soft);max-width:820px;margin-bottom:20px">No job reaches the board on trust. Each one walks the same five steps, and the fifth step never ends.</p>
+    <ol class="steps" style="--accent:var(--red)">
+      <li><b>Discover</b><p>Collect openings from 259 sources — company portals and hiring platforms, India and international.</p></li>
+      <li><b>Verify</b><p>Open the original posting on the source itself and confirm the role is genuinely live.</p></li>
+      <li><b>Review</b><p>Confirm it is a genuine entry-level PM role — the right level, the right function.</p></li>
+      <li><b>Publish</b><p>List it on the India or the International page, newest first.</p></li>
+      <li><b>Monitor</b><p>Re-verify every 12 hours; the moment a role closes, it is closed or updated on the board.</p></li>
+    </ol>
+
+    <h3 class="serif" style="font-size:1.8rem;margin:38px 0 18px">The roadmap — Now, Next, Later</h3>
+    <div class="roadmap">
+      <div class="card" style="--accent:var(--red)">
+        <h3 class="no-uline"><span class="when now">Now</span> Live &amp; growing</h3>
+        <p>Verified internships, fresher and 0–8 years experience PM jobs, running on both the India and International pages.</p>
+      </div>
+      <div class="card" style="--accent:var(--blue)">
+        <h3 class="no-uline"><span class="when next">Next</span> The default view</h3>
+        <p>The default view stays mixed and newest-first across all experience levels, so a visitor sees the freshest openings the moment they land.</p>
+      </div>
+      <div class="card" style="--accent:var(--teal)">
+        <h3 class="no-uline"><span class="when later">Later</span> Filtering, on demand</h3>
+        <p>Filters step in only when a visitor selects them — the board stays simple until the reader asks it to narrow down.</p>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top:24px">
+      <div class="card" style="--accent:var(--amber);--accent-dark:var(--amber-dark)">
+        <div class="meta-line">Also Built · The Handbook</div>
+        <h3>The Complete Product Management Knowledge Handbook</h3>
+        <p>Before running a product, I wrote the book on running one. The <strong>Complete Product Management Knowledge Handbook</strong> runs to <strong>466 pages</strong> — the whole craft of product management, organised into six chapters so that any topic can be found, understood and applied:</p>
+        <ul>
+          <li><strong>Chapter 1 — Topics &amp; Headings:</strong> the complete map of product management, every subject laid out in order, from fundamentals and the product lifecycle to strategy and roadmaps.</li>
+          <li><strong>Chapter 2 — PM Skills:</strong> the skills a product manager is expected to practise — discovery, user research, communication, prioritisation and delivery.</li>
+          <li><strong>Chapter 3 — Matrices:</strong> the decision grids used on real products, including RICE, ICE, MoSCoW, Kano and SWOT.</li>
+          <li><strong>Chapter 4 — Frameworks:</strong> the working frameworks behind strategy, growth, retention and experimentation.</li>
+          <li><strong>Chapter 5 — Formulas:</strong> the numbers of the craft — market sizing (TAM–SAM–SOM), activation, retention and the metrics a PM is judged by, each with its formula.</li>
+          <li><strong>Chapter 6 — Processes:</strong> how work actually flows — PRD writing, MVP scoping, backlog, sprints and delivery, step by step.</li>
+        </ul>
+        <p>It is the reference the platform is run from, and proof that the craft was learned deeply, not skimmed. The full handbook is attached below.</p>
+        <div class="doc-bar">
+          <span class="doc-txt">Complete Product Management Knowledge Handbook — the full document · 466 pages</span>
+          <a href="assets/PM-Handbook-466.pdf" target="_blank" rel="noopener">Open the Document — PDF</a>
+        </div>
+      </div>
+      <div class="card" style="--accent:var(--amber);--accent-dark:var(--amber-dark)">
+        <div class="meta-line">Also Built · The Handbook</div>
+        <h3>The handbook itself</h3>
+        <figure class="handbook-img">
+          <img src="assets/handbook-cover.jpg" alt="Title page of The Complete Product Management Knowledge Handbook by Aravindh Jawahar — a structured study of concepts, skills, matrices, frameworks, formulas and processes">
+          <figcaption>The title page of the Complete Product Management Knowledge Handbook — 466 pages, prepared by Aravindh Jawahar at ISBR Business School, Bengaluru.</figcaption>
+        </figure>
+        <p style="margin-top:14px"><a href="assets/PM-Handbook-466.pdf" target="_blank" rel="noopener"><strong>Open the full handbook — PDF →</strong></a></p>
+      </div>
+    </div>
+    <p class="founder-more"><a href="https://pm-launchpad.vercel.app/about.html#founder" target="_blank" rel="noopener">About my Founder →</a> — meet the founder on the PM Job Getaway About page.</p>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section class="section reveal" id="experience" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+    <div class="section-head">
+      <span class="chip">Experience</span>
+      <h2 class="section-title">Three internships, <em>three worlds of work</em></h2>
+      <p class="section-sub">Each role began as unfamiliar ground. Each one ended with a skill I still use every day — and each one put a college subject to work in the real world.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+        <div class="meta-line">Apr – Nov 2022 · Chennai</div>
+        <h3>Accounts &amp; Compliance Intern</h3>
+        <div class="co-line">
+          <span class="logo-shine"><span class="co-badge">VPSN</span></span>
+          <p><strong>VPSN Associates</strong> — a Chartered Accountancy firm</p>
+        </div>
+        <p>My first professional desk was inside a CA firm, where a misplaced decimal is not a typo — it is someone&rsquo;s money. I kept the books for <strong>10+ client accounts</strong> on Tally Prime and prepared the statements every business runs on: Profit &amp; Loss, Balance Sheet and Cash Flow. When filing season arrived, I prepared GST returns — <strong>GSTR-1 and GSTR-3B</strong> — where the deadline never negotiates.</p>
+        <p>The discipline showed in the numbers: our month-end closing finished about <strong><span class="count-num" data-target="20" data-suffix="%">20%</span> faster</strong>, with <strong><span class="count-num" data-target="100" data-suffix="%">100%</span> compliance</strong> maintained. Financial accounting and taxation stopped being exam subjects and became daily practice — debits, credits and statutory filings, done right, on time, every time.</p>
+        <h4 class="no-uline">Tools &amp; skills used</h4>
+        <div class="chips" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+          <span>Tally Prime</span><span>GST Filing</span><span>Excel</span><span>Ledger Management</span><span>Financial Statements</span>
+        </div>
+        <h4>College subject at work</h4>
+        <p>Financial Accounting &amp; Taxation — implemented in live client books and GST returns.</p>
+        <div class="doc-bar">
+          <span class="doc-txt">VPSN Associates — B.Com internship report · 14 weeks · 31 pages</span>
+          <a href="assets/VPSN-Internship-Report.pdf" target="_blank" rel="noopener">Open the Document — PDF</a>
+        </div>
+      </div>
+
+      <div class="card" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+        <div class="meta-line">2 Months · 2026</div>
+        <h3>Market Research Intern</h3>
+        <div class="co-line">
+          <span class="logo-shine co-logo"><img src="assets/logo-flyntt.jpg" alt="Flyntt Media Pvt. Ltd. logo"></span>
+          <p><strong>Flyntt Media Pvt. Ltd.</strong></p>
+        </div>
+        <p>EdTech is a crowded ocean, and my job was to chart it. Company by company, I profiled the industry and built a structured B2B database of <strong>240+ EdTech companies</strong> — who they are, what they sell, where they fit on the map. What began as raw listings became market mapping: patterns in how an entire sector competes.</p>
+        <p>Lead generation research taught me the researcher&rsquo;s patience — a database is only as valuable as its accuracy, and every entry had to earn its row. The marketing and market-research concepts from my coursework turned into a working method: profile, verify, categorise, map.</p>
+        <h4 class="no-uline">Tools &amp; skills used</h4>
+        <div class="chips" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+          <span>Company Profiling</span><span>Market Mapping</span><span>Lead Generation Research</span><span>Excel</span><span>Google Sheets</span>
+        </div>
+        <h4>College subject at work</h4>
+        <p>Marketing &amp; Market Research — implemented in profiling and mapping 240+ companies.</p>
+      </div>
+
+      <div class="card" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+        <div class="meta-line">2 Months</div>
+        <h3>Marketing &amp; Product Research Intern</h3>
+        <div class="co-line">
+          <span class="logo-shine co-logo"><img src="assets/logo-syncup.jpg" alt="SyncUp logo"></span>
+          <p><strong>SyncUp</strong></p>
+        </div>
+        <p>At SyncUp the questions changed from &ldquo;what does the market look like?&rdquo; to &ldquo;what does the customer actually feel?&rdquo; I tested the product hands-on, ran customer research, and analysed feedback to find where users were delighted and where they quietly struggled. Alongside it, competitor benchmarking and market trend analysis kept our view honest — what rivals ship, and where the market is moving.</p>
+        <p>The deliverable was structured research and feedback findings a team could act on. Consumer behaviour and product-thinking subjects came alive here: a feature is a hypothesis, and the customer&rsquo;s voice is the evidence.</p>
+        <h4 class="no-uline">Tools &amp; skills used</h4>
+        <div class="chips" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+          <span>Product Testing</span><span>Customer Research</span><span>Feedback Analysis</span><span>Competitor Benchmarking</span><span>Trend Analysis</span>
+        </div>
+        <h4>College subject at work</h4>
+        <p>Consumer Behaviour &amp; Product Management — implemented in testing, research and feedback analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AUTHOR ================= -->
+  <section class="section reveal" id="author" style="--accent:var(--amber);--accent-dark:var(--amber-dark)">
+    <div class="section-head">
+      <span class="chip">The Author&rsquo;s Desk</span>
+      <h2 class="section-title">Ranavettaiyan — a thousand-year-old secret, <em>told in three languages</em></h2>
+    </div>
+    <div class="story" style="max-width:920px">
+      <figure class="book-cover">
+        <img src="assets/ranavettaiyan-cover.jpg" alt="Cover of Ranavettaiyan — A Legacy Beyond Time, a historical fiction novel written by Aravindh Jawahar">
+        <figcaption>Ranavettaiyan — A Legacy Beyond Time. A historical fiction novel by Aravindh Jawahar, in Tamil, English and Hindi.</figcaption>
+      </figure>
+      <p>Between the spreadsheets and the sprint boards, there is another desk in my life — the writer&rsquo;s. <strong>Ranavettaiyan</strong> is my historical-fantasy novel: a story that begins with college lovers in the present day uncovering the history of a village samadhi statue, and reaches back a thousand years — to a Sindhu king who sends his two sons out into the world as commoners, to return only when they can raise an army.</p>
+      <p>The novel exists in <strong>Tamil, English and Hindi</strong>. The writing is <strong>done — all 50 chapters</strong>, with a complete Story Bible holding every thread in place, and a second book already hinted at in the final pages. It is <strong>not published yet</strong>: the editing work is in progress, sharpening every chapter before it meets its readers.</p>
+      <p>Why does a novel belong in a product portfolio? Because storytelling is the product manager&rsquo;s oldest tool. A roadmap is a story about the future. A pitch is a story about a problem. Fifty chapters taught me patience, structure and the discipline of finishing something enormous — the same discipline that re-verifies a job board every twelve hours.</p>
+    </div>
+    <div class="stats-band" style="--accent:var(--amber)">
+      <div class="stat"><div class="num">50</div><div class="lab">Chapters Written</div></div>
+      <div class="stat"><div class="num">3</div><div class="lab">Languages · Tamil, English, Hindi</div></div>
+      <div class="stat"><div class="num">Ready</div><div class="lab">Story Bible</div></div>
+      <div class="stat"><div class="num">Editing</div><div class="lab">In Progress · Not Yet Published</div></div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS & RESEARCH ================= -->
+  <section class="section reveal" id="projects" style="--accent:var(--blue);--accent-dark:var(--blue-dark)">
+    <div class="section-head">
+      <span class="chip">Project &amp; Research</span>
+      <h2 class="section-title">Blueprints, bottles and <em>questions asked properly</em></h2>
+      <p class="section-sub">Two product case studies built the PM way — problem first, roadmap second, measurement always — and a research shelf that runs from completed studies to live primary research happening right now.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card" style="--accent:var(--blue);--accent-dark:var(--blue-dark)">
+        <div class="meta-line">2026 · PM Case Study / Blueprint</div>
+        <h3>NegotiateTech — the price is a conversation</h3>
+        <p>Walk into any Indian bazaar and the first price is never the final price — bargaining is a national sport. Online electronics shopping killed that sport: one fixed price, take it or leave it. NegotiateTech, my product blueprint for shoppers aged <strong>20–35</strong>, brings the conversation back with a <strong>Direct Bargaining Engine</strong> — the buyer makes an offer, the seller counters, and both sides walk away with a deal they chose.</p>
+        <p>The roadmap is phased the way real products grow: first an <strong>MVP with negotiation chat</strong>, then <strong>AI price suggestions</strong> that help both sides meet in the middle, then <strong>seller analytics and trust scoring</strong>. And because a blueprint must know how it will be judged, it carries a measurement plan — activation, 7 and 30-day retention, DAU/MAU and CSAT/NPS. These are <strong>planned metrics</strong>, the yardsticks chosen in advance — this is a case study and blueprint, not a launched product, and it is presented honestly as one.</p>
+        <p>What it taught me: marketplace thinking, two-sided incentives, and funnel analysis — my product management and e-commerce coursework applied to a negotiation table that never closes.</p>
+        <h4 class="no-uline">Tools &amp; skills used</h4>
+        <div class="chips" style="--accent:var(--blue);--accent-dark:var(--blue-dark)">
+          <span>Roadmapping</span><span>Funnel Analysis</span><span>MVP Scoping</span><span>Measurement Planning</span><span>Marketplace Design</span>
+        </div>
+        <div class="doc-bar">
+          <span class="doc-txt">NegotiateTech — the full blueprint document</span>
+          <a href="assets/NegotiateTech-Blueprint.pdf" target="_blank" rel="noopener">Open the Document — PDF</a>
+        </div>
+      </div>
+
+      <div class="card" style="--accent:var(--blue);--accent-dark:var(--blue-dark)">
+        <div class="meta-line">2026 · Team Case Study · Team of 8</div>
+        <h3>Nutri Twist — one twist, instant energy</h3>
+        <p>Protein shakes fail at the same moment every day: the messy mixing. Nutri Twist — built by our <strong>team of eight</strong>, never a solo act — stores the powder in the bottle&rsquo;s cap. One twist, and the powder meets the water exactly when you want it: <strong>&ldquo;One Twist Instant Energy.&rdquo;</strong></p>
+        <p>With <strong>HealthKart</strong> as collaborator, we positioned it lifestyle-first — <strong>&ldquo;Daily Energy Nutrition&rdquo;</strong> for ages <strong>18–35</strong>, sold as a daily habit rather than a gym supplement. Our go-to-market plan reached customers where they already live: <strong>Instagram influencers, retail shelves, digital ads and e-commerce</strong>.</p>
+        <p>What it taught me: consumer-product thinking, positioning, and GTM planning as a team sport — eight people, one roadmap, and the marketing subjects from class turned into a launch plan with real channels and real audiences.</p>
+        <h4 class="no-uline">Tools &amp; skills used</h4>
+        <div class="chips" style="--accent:var(--blue);--accent-dark:var(--blue-dark)">
+          <span>GTM Planning</span><span>Positioning</span><span>Consumer Research</span><span>Team Roadmapping</span><span>Branding</span>
+        </div>
+        <div class="doc-bar">
+          <span class="doc-txt">Nutri Twist — the full case study document</span>
+          <a href="assets/Nutri-Twist-Case-Study.pdf" target="_blank" rel="noopener">Open the Document — PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="serif" style="font-size:1.8rem;margin:40px 0 18px">Research — completed studies</h3>
+    <div class="grid-3">
+      <div class="card" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+        <div class="meta-line meta-split"><span class="keep-u">2025 ·</span> Completed</div>
+        <h3>IT Startups &amp; Employment in Kumbakonam</h3>
+        <p>My hometown is known for temples and degrees — I wanted to know whether it could also be known for startups. This study examined how IT startups shape employment in Kumbakonam, using <strong>Chi-square and Correlation analysis</strong> to separate real patterns from hopeful assumptions. Business research methods stopped being theory here; they became a way to ask my own town a serious question and accept whatever the data answered.</p>
+        <div class="chips" style="--accent:var(--teal);--accent-dark:var(--teal-dark)"><span>Chi-square</span><span>Correlation</span><span>Primary Data</span></div>
+        <div class="doc-bar">
+          <span class="doc-txt">Research paper — IT Startups &amp; Employment in Kumbakonam · 44 pages</span>
+          <a href="assets/Research-IT-Startups-Kumbakonam.pdf" target="_blank" rel="noopener">Open the Document — PDF</a>
+        </div>
+      </div>
+      <div class="card" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+        <div class="meta-line meta-split"><span class="keep-u">2025 ·</span> Completed</div>
+        <h3>Financial Literacy among MBA Students</h3>
+        <p>Does knowing money change how you decide with money? Using <strong>SPSS regression</strong>, this study found that financial knowledge explains <strong><span class="count-num" data-target="21" data-suffix="%">21%</span> of the variance</strong> in students&rsquo; financial decision-making — and that <strong><span class="count-num" data-target="68" data-suffix="%">68%</span> of students budget consistently</strong>. Statistics coursework became a live instrument: hypotheses, regression output, and a finding with a number firm enough to stand on.</p>
+        <div class="chips" style="--accent:var(--teal);--accent-dark:var(--teal-dark)"><span>SPSS</span><span>Regression</span><span>Data Analysis</span></div>
+        <div class="doc-bar">
+          <span class="doc-txt">Research paper — Financial Literacy among MBA Students · 75 pages</span>
+          <a href="assets/Research-Financial-Literacy.pdf" target="_blank" rel="noopener">Open the Document — PDF</a>
+        </div>
+      </div>
+      <div class="card" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+        <div class="meta-line meta-split"><span class="keep-u">2024 ·</span> Completed</div>
+        <h3>Customer Satisfaction — TVS Motorcycles</h3>
+        <p>Primary research with <strong>100+ respondents</strong> — real riders, real opinions. I interviewed and surveyed TVS motorcycle customers to find what keeps them loyal and what quietly pushes them away, and the study surfaced <strong>4 retention levers</strong> a brand can actually pull. This is where user interviewing was truly learned: not from a chapter, but from a hundred conversations.</p>
+        <div class="chips" style="--accent:var(--teal);--accent-dark:var(--teal-dark)"><span>User Interviewing</span><span>Surveys</span><span>Retention Analysis</span></div>
+        <div class="doc-bar">
+          <span class="doc-txt">Research paper — Customer Satisfaction, TVS Motorcycles · 82 pages</span>
+          <a href="assets/Research-TVS-Customer-Satisfaction.pdf" target="_blank" rel="noopener">Open the Document — PDF</a>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="serif" style="font-size:1.8rem;margin:40px 0 6px">Research — ongoing, and every one of them primary-research based</h3>
+    <p style="color:var(--ink-soft);max-width:860px;margin-bottom:20px">These three studies are live. None of them sits on second-hand data — every ongoing research here is built on <strong>primary research</strong>: real users, real conversations, real behaviour observed first-hand.</p>
+    <div class="grid-3">
+      <div class="card" style="--accent:var(--amber);--accent-dark:var(--amber-dark)">
+        <div class="meta-line meta-plain">Ongoing · Primary Research</div>
+        <h3>Instant Shopping App</h3>
+        <p>The 10-minute delivery promise has a hidden cost — the last-minute purchase made in panic, at the wrong price, for the wrong item. This study goes to the source: primary research into <strong>last-minute purchase pain points</strong>, speaking with real quick-commerce users about the moments the apps fail them. The findings shape a full <strong>quick-commerce PRD with Figma wireframes</strong> — the pain points observed first-hand become the requirements written down. Product management coursework, applied end to end: research, PRD, wireframe.</p>
+        <div class="chips" style="--accent:var(--amber);--accent-dark:var(--amber-dark)"><span>PRD Writing</span><span>Figma Wireframes</span><span>User Pain Points</span></div>
+      </div>
+      <div class="card" style="--accent:var(--amber);--accent-dark:var(--amber-dark)">
+        <div class="meta-line meta-plain">Ongoing · Primary Research</div>
+        <h3>Event Planning Platform</h3>
+        <p>Anyone who has organised a wedding or a college fest knows the chaos lives between the vendors. Through primary research with the people who plan and supply events, this study maps how a platform could bring order to <strong>vendor management, dynamic pricing and modular packages</strong> — letting customers assemble an event the way they assemble a cart. Having organised six events myself, I research this one as both investigator and insider.</p>
+        <div class="chips" style="--accent:var(--amber);--accent-dark:var(--amber-dark)"><span>Vendor Management</span><span>Dynamic Pricing</span><span>Modular Packages</span></div>
+      </div>
+      <div class="card" style="--accent:var(--amber);--accent-dark:var(--amber-dark)">
+        <div class="meta-line meta-plain">Ongoing · Primary Research</div>
+        <h3>Cross-Functional Experience Analysis</h3>
+        <p>My own path — accounts, research, events, writing, founding — raises a question worth studying properly: <strong>how does cross-functional experience prepare people for Product Manager roles?</strong> This primary-research study gathers first-hand accounts and maps them against what PM work actually demands, testing whether the winding road is, in fact, the best preparation for the job.</p>
+        <div class="chips" style="--accent:var(--amber);--accent-dark:var(--amber-dark)"><span>Interviews</span><span>Career Mapping</span><span>PM Readiness</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section class="section reveal" id="education" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+    <div class="section-head">
+      <span class="chip">Education</span>
+      <h2 class="section-title">The formal record — <em>commerce roots, product future</em></h2>
+    </div>
+    <div class="edu-row">
+      <div class="edu-years">2025 – 2027</div>
+      <div>
+        <h3 class="no-uline">PGDM — Product Management</h3>
+        <div class="edu-inst">
+          <span class="logo-shine edu-logo"><img src="assets/logo-isbr.jpg" alt="ISBR Business School logo"></span>
+          <strong class="inst-name">ISBR Business School, Bengaluru</strong>
+        </div>
+        <p>In progress. The specialisation where the founder story, the handbook and the research all converge — product strategy, discovery, analytics and delivery, studied while a live product runs alongside.</p>
+        <span class="edu-score">CGPA <span class="count-num" data-target="8.1" data-decimals="1">8.1</span></span>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-years">2021 – 2024</div>
+      <div>
+        <h3 class="no-uline">B.Com (Honours)</h3>
+        <div class="edu-inst">
+          <span class="logo-shine edu-logo"><img src="assets/logo-guru-nanak.jpg" alt="Guru Nanak College logo"></span>
+          <strong class="inst-name">Guru Nanak College, Chennai</strong>
+        </div>
+        <p>The commerce foundation — accounting, finance and business law — and the campus where I served a year as Class Representative.</p>
+        <span class="edu-score">Percentage: <span class="count-num" data-target="75" data-suffix="%">75%</span></span>
+      </div>
+    </div>
+    <div class="edu-row">
+      <div class="edu-years">2019 – 2021</div>
+      <div>
+        <h3 class="no-uline">Higher Secondary</h3>
+        <div class="edu-inst">
+          <span class="logo-shine edu-logo"><img src="assets/logo-sri-matha.jpg" alt="Sri Matha Matric Higher Secondary School, Kumbakonam logo"></span>
+          <strong class="inst-name">Sri Matha School, Kumbakonam</strong>
+        </div>
+        <p>Where the sports medals and the first leadership lessons happened, in my hometown.</p>
+        <span class="edu-score">Percentage: <span class="count-num" data-target="75" data-suffix="%">75%</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS & TOOLS ================= -->
+  <section class="section reveal" id="skills" style="--accent:var(--amber);--accent-dark:var(--amber-dark)">
+    <div class="section-head">
+      <span class="chip">Skills &amp; Tools</span>
+      <h2 class="section-title">Fourteen skills — <em>each with a story behind it</em></h2>
+      <p class="section-sub">No percentages, no inflated bars. Every skill below names the real work where it was used or learned — and where the classroom and my own handbook were the teacher, it says so plainly.</p>
+    </div>
+    <div class="skill-grid">
+      <div class="skill"><b>Market Analysis</b><p>Flyntt Media — market mapping of 240+ EdTech companies.</p></div>
+      <div class="skill"><b>GTM Planning</b><p>Nutri Twist team go-to-market: influencers, retail, digital ads, e-commerce.</p></div>
+      <div class="skill"><b>User Interviewing</b><p>TVS Motorcycles study with 100+ respondents.</p></div>
+      <div class="skill"><b>Customer Research</b><p>SyncUp — customer research and feedback analysis.</p></div>
+      <div class="skill"><b>Customer Journey Mapping</b><p>PGDM + handbook.</p></div>
+      <div class="skill"><b>A/B Testing</b><p>PGDM + handbook.</p></div>
+      <div class="skill"><b>Data Analysis</b><p>SPSS regression in the financial literacy study.</p></div>
+      <div class="skill"><b>Excel</b><p>Financial statements and records at VPSN Associates.</p></div>
+      <div class="skill"><b>Funnel Analysis</b><p>NegotiateTech measurement plan: activation and retention.</p></div>
+      <div class="skill"><b>Agile Delivery</b><p>PGDM + handbook.</p></div>
+      <div class="skill"><b>Prioritization</b><p>RICE, ICE and MoSCoW, applied daily on PM Job Getaway.</p></div>
+      <div class="skill"><b>Roadmapping</b><p>Now/Next/Later roadmap for PM Job Getaway; NegotiateTech phases.</p></div>
+      <div class="skill"><b>Sprint Planning</b><p>PGDM + handbook.</p></div>
+      <div class="skill"><b>Decision Making</b><p>The verify-before-publish rules that govern PM Job Getaway.</p></div>
+    </div>
+
+    <div class="card" style="--accent:var(--amber);--accent-dark:var(--amber-dark);margin-top:26px">
+      <div class="meta-line">The Toolbox</div>
+      <h3>Tools I work with</h3>
+      <div class="chips" style="--accent:var(--amber);--accent-dark:var(--amber-dark)">
+        <span>Figma</span><span>Adobe XD</span><span>Miro</span><span>Power BI</span><span>Tableau</span><span>SPSS</span><span>Excel</span><span>Google Sheets</span><span>Google Docs</span><span>Notion</span><span>Jira</span><span>Trello</span><span>Asana</span><span>Photoshop</span><span>CapCut</span><span>Tally Prime</span><span>GST Filing</span><span>Ledger Management</span><span>Claude</span><span>n8n</span>
+      </div>
+    </div>
+
+    <div class="card" style="--accent:var(--amber);--accent-dark:var(--amber-dark);margin-top:24px">
+      <div class="meta-line">What I Know</div>
+      <h3>The knowledge base — from the PGDM classroom and a 466-page handbook</h3>
+      <p>This is studied, written-down knowledge — learned through the PGDM curriculum and through authoring the Complete Product Management Knowledge Handbook, with its six chapters on Topics &amp; Headings, PM Skills, Matrices, Frameworks, Formulas and Processes. It is the map I navigate by; the work above is where the map meets the road.</p>
+      <ul class="know-list">
+        <li>PM fundamentals and the product lifecycle</li>
+        <li>Strategy, vision, mission and roadmaps</li>
+        <li>Discovery, user research and personas</li>
+        <li>Market and competitive analysis</li>
+        <li>Business models, pricing and monetization</li>
+        <li>PRD, MVP, backlog, sprints and delivery</li>
+        <li>Growth, retention, analytics and experimentation</li>
+        <li>AI, SaaS, B2B, B2C and platform PM</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= ACHIEVEMENTS ================= -->
+  <section class="section reveal" id="achievements" style="--accent:var(--red);--accent-dark:var(--red-dark)">
+    <div class="section-head">
+      <span class="chip">Achievements</span>
+      <h2 class="section-title">Proof, printed in <em>black and white</em></h2>
+      <p class="section-sub">Certifications earned, rooms led, matches won and prototypes delivered — the record behind the story.</p>
+    </div>
+
+    <div id="certifications" style="scroll-margin-top:92px">
+      <div class="kicker" style="--accent:var(--red)">Certification</div>
+      <div class="cert-row" style="margin-bottom:34px">
+        <div class="cert"><div class="cert-lab">Certified</div><div class="cert-name">Bloomberg</div></div>
+        <div class="cert"><div class="cert-lab">Certified</div><div class="cert-name">Tally</div></div>
+        <div class="cert"><div class="cert-lab">Certified</div><div class="cert-name">Type Writing</div></div>
+        <div class="cert"><div class="cert-lab">Certified</div><div class="cert-name">Product Management 101</div></div>
+      </div>
+    </div>
+
+    <div class="ach-grid">
+      <div class="ach"><div class="num">200+</div><b>Elected Class Representative</b><p>Chosen by a cohort of 200+ students and served one full year in UG — the first leadership mandate of my life.</p></div>
+      <div class="ach"><div class="num">2</div><b>Business Pitch Finalist</b><p>Two concepts carried all the way to the finalist stage — ideas sharpened until a room full of judges believed in them.</p></div>
+      <div class="ach"><div class="num"><span class="count-num" data-target="30" data-suffix="%+">30%+</span></div><b>Website Ambassador, ISBR</b><p>Engagement up <span class="count-num" data-target="30" data-suffix="%+">30%+</span>, and 10+ students influenced to choose and join the college.</p></div>
+      <div class="ach"><div class="num">6</div><b>Startups Club Events Organised</b><p>Startups events, founder meetups and competitions — budget collection, roadmapping, coordination, teamwork and responsibility, end to end.</p></div>
+      <div class="ach"><div class="num">1st</div><b>Collegiate Football Winner</b><p>A winner&rsquo;s medal in collegiate football — the sports person&rsquo;s mindset, carried into every deadline since.</p></div>
+      <div class="ach"><div class="num">3</div><b>Prototypes for 3 Companies</b><p>A website, an app and a dashboard — designed in Figma with user storytelling, plus independent prototypes of my own.</p></div>
+      <div class="ach"><div class="num">10+</div><b>Wedding Albums Edited</b><p>Complete individual wedding albums — whole photos and videos — edited in the wedding studio, alongside YouTube channel videos.</p></div>
+      <div class="ach"><div class="num">3+</div><b>Startup Competitions</b><p>Participated in 3+ startup competitions, reached the finalist stage in some, and pitched startup ideas with working prototypes.</p></div>
+      <div class="ach"><div class="num">466</div><b>Pages of PM Handbook</b><p>The Complete Product Management Knowledge Handbook — six chapters of the craft, written while learning it.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= MILESTONES ================= -->
+  <section class="section reveal" id="milestones" style="--accent:var(--blue);--accent-dark:var(--blue-dark)">
+    <div class="section-head">
+      <span class="chip">Milestones</span>
+      <h2 class="section-title">Eight stories that <em>built the person</em></h2>
+      <p class="section-sub">Before the titles and the metrics, there were moments. Each one left behind a skill — and a little more steel.</p>
+    </div>
+
+    <div class="mile"><div class="no">1</div><div>
+      <h3>The sports field came first</h3>
+      <p>Running, football, long jump, relay, marathon — school sports were my first arena, and I won there. Growing up a sports person made me mentally and physically strong from an early stage: when things turn tough — a closing deadline, a broken launch, a hard room — I have been trained since childhood to stay on my feet and finish the race.</p>
+    </div></div>
+
+    <div class="mile"><div class="no">2</div><div>
+      <h3>A year as Class Representative</h3>
+      <p>For one full year at Guru Nanak College, I stood between the students and the staff — carrying messages both ways, coordinating people with very different expectations, and keeping a whole class moving together. I learned people-handling, clear communication, coordination, leadership and adaptability — sometimes teaching, sometimes delivering the motivational speech that got everyone through a hard week.</p>
+    </div></div>
+
+    <div class="mile"><div class="no">3</div><div>
+      <h3>The wedding studio — where editing work became experience</h3>
+      <p>For a few months I worked in a wedding studio, where other people&rsquo;s most precious memories passed through my hands. I edited photos, videos, flex designs and posters — completing <strong>10+ individual wedding albums</strong>, whole photos and videos, plus videos for YouTube channels. The studio paid me in two currencies: real earnings, and editing craft I still use whenever a product needs a story told visually.</p>
+    </div></div>
+
+    <div class="mile mile-photo"><div class="no">4</div><div>
+      <h3>The face of my college</h3>
+      <p>As ISBR&rsquo;s Website Ambassador, I represented my college to the world outside it — creating awareness, speaking with students who were searching for the right college and with those about to join, and contributing back to the institution that was building me. More than <strong>10 students joined</strong> through that influence. Connection building, marketing and honest awareness — learned by standing in front of strangers and earning their trust.</p>
+    </div>
+    <figure>
+      <div class="mile-slides">
+        <img class="on" src="assets/photo-presentation-1.jpg" alt="Aravindh Jawahar presenting his market research to the class at ISBR">
+        <img src="assets/photo-presentation-2.jpg" alt="" aria-hidden="true">
+        <img src="assets/photo-presentation-3.jpg" alt="" aria-hidden="true">
+        <img src="assets/photo-presentation-4.jpg" alt="" aria-hidden="true">
+      </div>
+      <figcaption class="photo-cap">On stage at ISBR — presenting research and product ideas to the class.</figcaption>
+    </figure>
+    </div>
+
+    <div class="mile"><div class="no">5</div><div>
+      <h3>Six events, start to finish</h3>
+      <p>Startups events, founder meetups and competitions — I organised and conducted <strong>six events</strong> at my college and made each one land successfully. Budget collection, roadmapping the event, coordinating teams, carrying responsibility when something wobbled: event organising taught me how anything — including a product launch — is actually done properly.</p>
+    </div></div>
+
+    <div class="mile"><div class="no">6</div><div>
+      <h3>Three companies trusted my prototypes</h3>
+      <p>Three companies received working prototypes from my desk — a <strong>website, an app and a dashboard</strong> — built with Figma, user storytelling and the right tools for each problem. A student handing a company a prototype it can react to is a student who has stopped asking for permission to be technical. This is where I became technically strong.</p>
+    </div></div>
+
+    <div class="mile mile-photo"><div class="no">7</div><div>
+      <h3>Pitch rooms — and a government school classroom</h3>
+      <p>I have pitched my startup ideas, prototype in hand, in <strong>3+ startup competitions</strong> — reaching the finalist stage in some — learning pitch, presentation, marketing and the art of the idea itself. And through NGO teaching, I stood in a government school classroom before students of <strong>Classes 3 to 10</strong>, creating awareness about startups and entrepreneurship. Communication, teaching and social contribution: the pitch persuades a jury, but the classroom teaches you why the work matters.</p>
+    </div>
+    <figure>
+      <div class="mile-slides">
+        <img class="on" src="assets/photo-ngo-1.jpg" alt="Aravindh Jawahar teaching school students in a digital classroom during an NGO session">
+        <img src="assets/photo-ngo-2.jpg" alt="" aria-hidden="true">
+        <img src="assets/photo-ngo-3.jpg" alt="" aria-hidden="true">
+        <img src="assets/photo-ngo-4.jpg" alt="" aria-hidden="true">
+      </div>
+      <figcaption class="photo-cap">NGO teaching — sessions with government school students, Classes 3 to 10.</figcaption>
+    </figure>
+    </div>
+
+    <div class="mile"><div class="no">8</div><div>
+      <h3>The bug reports companies actually fixed</h3>
+      <p>I have a habit: when an app or website fails its users, I do not just close it — I find the problem properly, work out a solution, and mail it to the company. Big companies, medium ones, small ones — many of them corrected their app or website based on what I sent. Analysis, problem-finding and solutions, practised on live products long before I had the title. That habit, scaled up, became PM Job Getaway.</p>
+    </div></div>
+  </section>
+
+  <!-- ================= RESUME ================= -->
+  <section class="section reveal" id="resume" style="--accent:var(--teal);--accent-dark:var(--teal-dark)">
+    <div class="section-head">
+      <span class="chip">Resume</span>
+      <h2 class="section-title">The Resume — <em>In Short</em></h2>
+    </div>
+    <div class="resume-grid">
+      <div class="story">
+        <p>Who he is: <strong>Aravindh Jawahar</strong>, a commerce graduate from Kumbakonam, Tamil Nadu, now pursuing a PGDM in Product Management at ISBR Business School, Bengaluru — an aspiring Product Manager who learns by building, not by waiting.</p>
+        <p>The proof: three internships across accounting and compliance, B2B market research and product research; two product case studies built as a blueprint and a team GTM plan; completed research on startups, financial literacy and motorcycle customers; three primary-research studies running right now; and a 466-page Product Management handbook written by hand — his own.</p>
+        <p>What he runs now: <strong>PM Job Getaway</strong>, the verified-only board for entry-level PM jobs that he founded in October 2026 and re-verifies every 12 hours — a live product with real users, real metrics and a real roadmap.</p>
+        <p>What he is looking for: <strong>entry-level Product Manager and APM roles</strong> — and product internships — where this mix of numbers discipline, research rigour and founder energy can be put to work from day one.</p>
+      </div>
+      <div class="resume-side">
+        <div class="kicker" style="--accent:var(--teal)">The Full Document</div>
+        <h3>Two pages, everything verified</h3>
+        <p>The complete resume — education, internships, projects, research, skills and achievements — attached here as a printable PDF (2 pages, A4), with the portfolio and platform links inside it.</p>
+        <div class="resume-actions">
+          <a class="btn blue" href="assets/Aravindh-J-Resume.pdf" target="_blank" rel="noopener">Open the Resume — PDF</a>
+          <a class="btn btn-download" href="assets/Aravindh-J-Resume.pdf" download="Aravindh-J-Resume.pdf">Download Resume</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div><!-- /wrap -->
+
+<!-- ================= CONTACT / FOOTER ================= -->
+<footer id="contact" style="scroll-margin-top:72px">
+  <div class="foot-inner">
+    <div class="kicker" style="--accent:var(--amber);color:var(--amber)">Let&rsquo;s Connect</div>
+    <div class="foot-head">Let&rsquo;s make the <em>next headline</em>.</div>
+    <p class="foot-sub">Open to Product Manager roles, internships and collaborations. Based in Bengaluru — and always one message away. If you are building something honest and useful, I would like to hear about it.</p>
+    <div class="directory">
+      <div><span>The Platform</span><a href="https://pm-launchpad.vercel.app" target="_blank" rel="noopener">PM Job Getaway — pm-launchpad.vercel.app</a></div>
+      <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/aravindhjawahar2003" target="_blank" rel="noopener">linkedin.com/in/aravindhjawahar2003</a></div>
+      <div><span>LinkedIn Company</span><a href="https://www.linkedin.com/company/pm-job-getaway" target="_blank" rel="noopener">PM Job Getaway on LinkedIn</a></div>
+      <div><span>Reddit</span><a href="https://www.reddit.com/user/Special-Passion-8008" target="_blank" rel="noopener">u/Special-Passion-8008</a></div>
+      <div><span>Mobile</span><a href="tel:+919944468179">+91 9944468179</a></div>
+      <div><span>Email</span><a href="mailto:aravindhjawahar2003@gmail.com">aravindhjawahar2003@gmail.com</a></div>
+      <div><span>GitHub</span><a href="https://github.com/aravindhjawahar2003-del" target="_blank" rel="noopener">github.com/aravindhjawahar2003-del</a></div>
+      <div><span>The Resume</span><a href="assets/Aravindh-J-Resume.pdf" target="_blank" rel="noopener">Open the Resume — PDF</a></div>
+    </div>
+    <div class="colophon">
+      <span>© 2026 Aravindh J · Bangalore, India · Personal edition · Product Management</span>
+      <a href="#top">Back to the front page ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  var nav = burger.closest ? burger.closest('.nav') : null;
+  function setMenu(open){
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  burger.addEventListener('click', function(){
+    setMenu(!menu.classList.contains('open'));
+  });
+  menu.addEventListener('click', function(e){
+    var link = e.target.closest ? e.target.closest('a') : null;
+    if (link) setMenu(false);
+  });
+  document.addEventListener('click', function(e){
+    if (menu.classList.contains('open') && nav && !nav.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if ((e.key === 'Escape' || e.key === 'Esc') && menu.classList.contains('open')) {
+      setMenu(false);
+      burger.focus();
+    }
+  });
+  var items = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.intersectionRatio >= 0.08) { en.target.classList.add('in'); }
+        else if (en.intersectionRatio === 0) { en.target.classList.remove('in'); }
+      });
+    }, { threshold: [0, 0.08] });
+    items.forEach(function(el){ io.observe(el); });
+  } else {
+    items.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduce) return;
+
+  /* ----- Masthead: AJ first, then the full name runs in ----- */
+  var mast = document.getElementById('mastName');
+  if (!mast) {
+    var host = document.querySelector('.masthead');
+    if (host) mast = host.querySelector('.mast-name');
+  }
+  if (mast) {
+    var fullText = mast.textContent.replace(/\s+/g, ' ').trim().toUpperCase();
+    mast.textContent = '';
+    mast.setAttribute('aria-label', fullText);
+
+    var aj = document.createElement('span');
+    aj.className = 'mast-aj';
+    aj.setAttribute('aria-hidden', 'true');
+    aj.textContent = 'AJ';
+    mast.appendChild(aj);
+
+    var full = document.createElement('span');
+    full.className = 'mast-full';
+    full.setAttribute('aria-hidden', 'true');
+    var letterIndex = 0;
+    fullText.split(' ').forEach(function(word, wi){
+      if (wi > 0) full.appendChild(document.createTextNode(' '));
+      var w = document.createElement('span');
+      w.className = 'mast-word';
+      word.split('').forEach(function(ch){
+        var s = document.createElement('span');
+        s.className = 'ml';
+        s.style.setProperty('--li', letterIndex++);
+        s.textContent = ch;
+        w.appendChild(s);
+      });
+      full.appendChild(w);
+    });
+    mast.appendChild(full);
+    mast.id = 'mastName';
+
+    /* The name animation replays every time the masthead comes back into view */
+    var loopTimer = null;
+    var mastIn = false;
+    function playMast(){
+      window.clearTimeout(loopTimer);
+      mast.classList.remove('mast-loop');
+      mast.classList.remove('mast-play');
+      if (aj.parentNode === mast) mast.removeChild(aj);
+      if (full.parentNode === mast) mast.removeChild(full);
+      void mast.offsetWidth;
+      mast.appendChild(aj);
+      mast.appendChild(full);
+      mast.classList.add('mast-play');
+      loopTimer = window.setTimeout(function(){ mast.classList.add('mast-loop'); }, 3600);
+    }
+    if ('IntersectionObserver' in window) {
+      var mo = new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if (en.isIntersecting && !mastIn) { mastIn = true; playMast(); }
+          else if (!en.isIntersecting) { mastIn = false; }
+        });
+      }, { threshold: 0 });
+      mo.observe(mast);
+    } else {
+      playMast();
+    }
+  }
+
+  /* ----- Every heading: split into words that run in on arrival ----- */
+  function splitWords(node, state){
+    Array.prototype.slice.call(node.childNodes).forEach(function(child){
+      if (child.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach(function(part){
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(' ')); return; }
+          var outer = document.createElement('span');
+          outer.className = 'wm';
+          var inner = document.createElement('span');
+          inner.className = 'wi';
+          inner.style.setProperty('--wi', state.i++);
+          inner.textContent = part;
+          outer.appendChild(inner);
+          frag.appendChild(outer);
+        });
+        node.replaceChild(frag, child);
+      } else if (child.nodeType === 1) {
+        splitWords(child, state);
+      }
+    });
+  }
+
+  var headings = document.querySelectorAll('h1, h2, h3, h4, .foot-head');
+  headings.forEach(function(h){
+    if (h.closest('.masthead')) return;
+    splitWords(h, { i: 0 });
+    h.classList.add('has-move');
+  });
+
+  if ('IntersectionObserver' in window) {
+    var ho = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.intersectionRatio >= 0.25) { en.target.classList.add('head-in'); }
+        else if (en.intersectionRatio === 0) { en.target.classList.remove('head-in'); }
+      });
+    }, { threshold: [0, 0.25], rootMargin: '0px 0px -8% 0px' });
+    headings.forEach(function(h){ ho.observe(h); });
+  } else {
+    headings.forEach(function(h){ h.classList.add('head-in'); });
+  }
+
+  /* ----- About photo: 3-photo slideshow, smooth crossfade every 5 seconds ----- */
+  var slides = document.querySelectorAll('.about-slides img');
+  if (slides.length > 1) {
+    var cur = 0;
+    window.setInterval(function(){
+      slides[cur].classList.remove('on');
+      cur = (cur + 1) % slides.length;
+      slides[cur].classList.add('on');
+    }, 5000);
+  }
+
+  /* ----- Milestone photos: each slideshow crossfades its own photos
+         every 2 seconds (Milestone 4 presentations, Milestone 7 NGO
+         teaching) — every frame cycles independently ----- */
+  document.querySelectorAll('.mile-slides').forEach(function(show){
+    var imgs = show.querySelectorAll('img');
+    if (imgs.length > 1) {
+      var idx = 0;
+      window.setInterval(function(){
+        imgs[idx].classList.remove('on');
+        idx = (idx + 1) % imgs.length;
+        imgs[idx].classList.add('on');
+      }, 2000);
+    }
+  });
+
+  /* ----- Count-up numbers: the platform count effect.
+         The RESTING state of every number is its REAL value: the markup
+         carries the true value and this script re-stamps it on load, so a
+         static preview, screenshot, print or export reads the real number
+         (90 / 134 / 259, CGPA 8.1, 75%) — never 0, never blank.
+         The count-up itself is a live-browser enhancement: it plays EVERY
+         time a number scrolls into view. Numbers already on screen at
+         load time are part of the resting state — they keep their real
+         value and are never restarted from 0 — but once a number has
+         fully left the screen it re-arms, so scrolling back to it replays
+         the count-up, exactly like the heading and masthead effects. A
+         number that leaves the screen mid-count settles straight back
+         onto its real value. ----- */
+  function fmtCount(el, v){
+    var d = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    return v.toFixed(d) + suffix;
+  }
+  function targetOf(el){ return parseFloat(el.getAttribute('data-target')); }
+  function settleCount(el){
+    el._counting = false;
+    el.textContent = fmtCount(el, targetOf(el));
+  }
+  function runCount(el){
+    if (el._counting) return;
+    el._counting = true;
+    var target = targetOf(el);
+    var dur = 1400, start = null;
+    function step(ts){
+      if (!el._counting) return;
+      if (!start) start = ts;
+      var t = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - t, 3);
+      el.textContent = fmtCount(el, target * eased);
+      if (t < 1) { window.requestAnimationFrame(step); }
+      else { el.textContent = fmtCount(el, target); el._counting = false; }
+    }
+    window.requestAnimationFrame(step);
+  }
+  var counters = document.querySelectorAll('.count-num');
+  /* Resting state first: stamp the real value on every counter before
+     any observer runs, whatever the markup or a prior frame left there. */
+  counters.forEach(function(el){ el.textContent = fmtCount(el, targetOf(el)); });
+  if ('IntersectionObserver' in window && counters.length) {
+    var booted = false;
+    var co = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var el = en.target;
+        if (en.intersectionRatio >= 0.35) {
+          if (!booted) {
+            /* On screen at load: this is the resting state a static
+               capture reads — keep the real value, never start at 0.
+               It is still armed, so once it has left the screen and
+               comes back, the count-up replays like any other. */
+            el.textContent = fmtCount(el, targetOf(el));
+          } else if (!el._counting && !el._played) {
+            /* Scrolled into view after load: play the count-up. The
+               _played latch is cleared the moment the number fully
+               leaves the screen, so every return visit replays. */
+            el._played = true;
+            runCount(el);
+          }
+        } else if (en.intersectionRatio === 0) {
+          /* Fully off screen: settle on the real value (this also stops
+             a count still in flight) and re-arm for the next visit. */
+          if (el._counting) settleCount(el);
+          el._played = false;
+        }
+      });
+      /* The observer's first delivery covers everything on screen at
+         load; anything arriving after that was scrolled to, and may
+         play the count-up. */
+      booted = true;
+    }, { threshold: [0, 0.35] });
+    counters.forEach(function(el){ co.observe(el); });
+  }
+  /* Print always shows the real numbers too. */
+  window.addEventListener('beforeprint', function(){
+    counters.forEach(function(el){ settleCount(el); });
+  });
+
+  /* ----- Heading shine: stagger the always-running sweep per heading ----- */
+  document.querySelectorAll('h1, h2, h3, h4, .foot-head, .side-head, .cert-name').forEach(function(h, i){
+    h.style.setProperty('--shine-delay', ((i % 6) * 0.8) + 's');
+  });
+})();
+</script>
+</body>
+</html>
